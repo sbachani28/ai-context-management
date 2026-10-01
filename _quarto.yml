@@ -1,0 +1,63 @@
+project:
+  type: website
+  output-dir: docs
+  execute-dir: project
+  render:
+    - index.qmd
+    - datasets.qmd
+    - retrieval.qmd
+    - market.qmd
+    - evidence.qmd
+    - economics.qmd
+    - methods.qmd
+    - pulse.qmd
+  resources:
+    - assets/**
+    - data/processed/**
+    - figures/**
+    - R/**
+    - scripts/**
+    - README.txt
+website:
+  site-url: https://sbachani28.github.io/ai-context-management/
+  title: "Context Management"
+  navbar:
+    pinned: true
+    left:
+      - text: Overview
+        href: index.qmd
+      - text: Data
+        href: datasets.qmd
+      - text: Experiment
+        href: retrieval.qmd
+      - text: Model prices
+        href: market.qmd
+      - text: Benchmarks
+        href: evidence.qmd
+      - text: Economics
+        href: economics.qmd
+      - text: Methods
+        href: methods.qmd
+      - text: Survey
+        href: pulse.qmd
+  page-footer:
+    left: "CONTEXT MANAGEMENT · Student research"
+    right: "Tests of source recall · Finding facts does not prove an answer is right"
+  search: true
+format:
+  html:
+    theme: minty
+    css: assets/styles.css
+    toc: false
+    page-layout: full
+    code-fold: false
+    code-summary: "Show R code"
+    code-copy: true
+    fig-format: png
+    fig-dpi: 160
+    include-after-body: assets/footer.html
+execute:
+  echo: false
+  warning: false
+  message: false
+  freeze: false

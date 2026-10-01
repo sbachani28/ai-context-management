@@ -1,0 +1,242 @@
+[
+  {
+    "dataset": "LoCoMo",
+    "category": "Multi-hop",
+    "strategy": "BM25",
+    "n": 282,
+    "recall": 0.52626365,
+    "all_hit": 0.26950355
+  },
+  {
+    "dataset": "LoCoMo",
+    "category": "Multi-hop",
+    "strategy": "Random",
+    "n": 282,
+    "recall": 0.17299617,
+    "all_hit": 0.0177305
+  },
+  {
+    "dataset": "LoCoMo",
+    "category": "Multi-hop",
+    "strategy": "Recent",
+    "n": 282,
+    "recall": 0.1602851,
+    "all_hit": 0.03900709
+  },
+  {
+    "dataset": "LoCoMo",
+    "category": "Open-domain",
+    "strategy": "BM25",
+    "n": 92,
+    "recall": 0.54774845,
+    "all_hit": 0.43478261
+  },
+  {
+    "dataset": "LoCoMo",
+    "category": "Open-domain",
+    "strategy": "Random",
+    "n": 92,
+    "recall": 0.17637164,
+    "all_hit": 0.11956522
+  },
+  {
+    "dataset": "LoCoMo",
+    "category": "Open-domain",
+    "strategy": "Recent",
+    "n": 92,
+    "recall": 0.16821946,
+    "all_hit": 0.10869565
+  },
+  {
+    "dataset": "LoCoMo",
+    "category": "Single-hop",
+    "strategy": "BM25",
+    "n": 841,
+    "recall": 0.95362663,
+    "all_hit": 0.95362663
+  },
+  {
+    "dataset": "LoCoMo",
+    "category": "Single-hop",
+    "strategy": "Random",
+    "n": 841,
+    "recall": 0.18727705,
+    "all_hit": 0.18668252
+  },
+  {
+    "dataset": "LoCoMo",
+    "category": "Single-hop",
+    "strategy": "Recent",
+    "n": 841,
+    "recall": 0.21284185,
+    "all_hit": 0.21284185
+  },
+  {
+    "dataset": "LoCoMo",
+    "category": "Temporal",
+    "strategy": "BM25",
+    "n": 321,
+    "recall": 0.88629283,
+    "all_hit": 0.86604361
+  },
+  {
+    "dataset": "LoCoMo",
+    "category": "Temporal",
+    "strategy": "Random",
+    "n": 321,
+    "recall": 0.16251298,
+    "all_hit": 0.15576324
+  },
+  {
+    "dataset": "LoCoMo",
+    "category": "Temporal",
+    "strategy": "Recent",
+    "n": 321,
+    "recall": 0.20612669,
+    "all_hit": 0.19314642
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "category": "Knowledge Update",
+    "strategy": "BM25",
+    "n": 72,
+    "recall": 0.98611111,
+    "all_hit": 0.97222222
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "category": "Knowledge Update",
+    "strategy": "Random",
+    "n": 72,
+    "recall": 0.125,
+    "all_hit": 0
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "category": "Knowledge Update",
+    "strategy": "Recent",
+    "n": 72,
+    "recall": 0.22222222,
+    "all_hit": 0.01388889
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "category": "Multi Session",
+    "strategy": "BM25",
+    "n": 121,
+    "recall": 0.84090909,
+    "all_hit": 0.66115702
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "category": "Multi Session",
+    "strategy": "Random",
+    "n": 121,
+    "recall": 0.09517906,
+    "all_hit": 0
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "category": "Multi Session",
+    "strategy": "Recent",
+    "n": 121,
+    "recall": 0.12754821,
+    "all_hit": 0.00826446
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "category": "Single Session Assistant",
+    "strategy": "BM25",
+    "n": 56,
+    "recall": 1,
+    "all_hit": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "category": "Single Session Assistant",
+    "strategy": "Random",
+    "n": 56,
+    "recall": 0.08928571,
+    "all_hit": 0.08928571
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "category": "Single Session Assistant",
+    "strategy": "Recent",
+    "n": 56,
+    "recall": 0.14285714,
+    "all_hit": 0.14285714
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "category": "Single Session Preference",
+    "strategy": "BM25",
+    "n": 30,
+    "recall": 0.83333333,
+    "all_hit": 0.83333333
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "category": "Single Session Preference",
+    "strategy": "Random",
+    "n": 30,
+    "recall": 0.16666667,
+    "all_hit": 0.16666667
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "category": "Single Session Preference",
+    "strategy": "Recent",
+    "n": 30,
+    "recall": 0.13333333,
+    "all_hit": 0.13333333
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "category": "Single Session User",
+    "strategy": "BM25",
+    "n": 64,
+    "recall": 1,
+    "all_hit": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "category": "Single Session User",
+    "strategy": "Random",
+    "n": 64,
+    "recall": 0.1875,
+    "all_hit": 0.1875
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "category": "Single Session User",
+    "strategy": "Recent",
+    "n": 64,
+    "recall": 0.140625,
+    "all_hit": 0.140625
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "category": "Temporal Reasoning",
+    "strategy": "BM25",
+    "n": 127,
+    "recall": 0.87716535,
+    "all_hit": 0.7480315
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "category": "Temporal Reasoning",
+    "strategy": "Random",
+    "n": 127,
+    "recall": 0.09422572,
+    "all_hit": 0.02362205
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "category": "Temporal Reasoning",
+    "strategy": "Recent",
+    "n": 127,
+    "recall": 0.09553806,
+    "all_hit": 0.03149606
+  }
+]

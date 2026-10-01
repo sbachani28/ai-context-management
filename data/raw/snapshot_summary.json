@@ -1,0 +1,20 @@
+{
+  "observed_at_utc": "2026-10-01T04:30:35.757195+00:00",
+  "raw_catalog_rows": 462,
+  "selected_rows": 304,
+  "company_counts": {
+    "OpenAI": 102,
+    "Anthropic": 29,
+    "Alibaba": 54,
+    "xAI": 8,
+    "DeepSeek": 15,
+    "Alphabet / Google": 41,
+    "NVIDIA": 10,
+    "Mistral AI": 25,
+    "Amazon": 5,
+    "Perplexity": 5,
+    "Meta": 8,
+    "Microsoft": 2
+  },
+  "warning": "One snapshot only. Multiple models are not independent company-month observations. Catalog creation timestamps are not verified model release dates."
+}

@@ -1,0 +1,18 @@
+[
+  {
+    "dataset": "LoCoMo",
+    "n": 1986,
+    "eligible": 1536,
+    "median_history_words": 14434,
+    "median_sessions": 29,
+    "p90_sessions": 31
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "n": 500,
+    "eligible": 470,
+    "median_history_words": 79231,
+    "median_sessions": 48,
+    "p90_sessions": 52
+  }
+]

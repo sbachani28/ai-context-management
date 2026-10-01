@@ -1,0 +1,3362 @@
+[
+  {
+    "dataset": "LoCoMo",
+    "cluster": "conv-26",
+    "n": 150,
+    "total": 79.78333333,
+    "gain": 0.53188889
+  },
+  {
+    "dataset": "LoCoMo",
+    "cluster": "conv-30",
+    "n": 81,
+    "total": 44,
+    "gain": 0.54320988
+  },
+  {
+    "dataset": "LoCoMo",
+    "cluster": "conv-41",
+    "n": 152,
+    "total": 101.91666667,
+    "gain": 0.67050439
+  },
+  {
+    "dataset": "LoCoMo",
+    "cluster": "conv-42",
+    "n": 199,
+    "total": 125.21904762,
+    "gain": 0.62924145
+  },
+  {
+    "dataset": "LoCoMo",
+    "cluster": "conv-43",
+    "n": 178,
+    "total": 122.11904762,
+    "gain": 0.68606207
+  },
+  {
+    "dataset": "LoCoMo",
+    "cluster": "conv-44",
+    "n": 123,
+    "total": 68.55,
+    "gain": 0.55731707
+  },
+  {
+    "dataset": "LoCoMo",
+    "cluster": "conv-47",
+    "n": 150,
+    "total": 106.63333333,
+    "gain": 0.71088889
+  },
+  {
+    "dataset": "LoCoMo",
+    "cluster": "conv-48",
+    "n": 191,
+    "total": 145.58333333,
+    "gain": 0.7622164
+  },
+  {
+    "dataset": "LoCoMo",
+    "cluster": "conv-49",
+    "n": 156,
+    "total": 89.90119048,
+    "gain": 0.57628968
+  },
+  {
+    "dataset": "LoCoMo",
+    "cluster": "conv-50",
+    "n": 156,
+    "total": 95.75,
+    "gain": 0.61378205
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "001be529",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "00ca467f",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "0100672e",
+    "n": 1,
+    "total": 0.5,
+    "gain": 0.5
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "01493427",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "031748ae",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "06878be2",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "06db6396",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "06f04340",
+    "n": 1,
+    "total": 0,
+    "gain": 0
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "07741c44",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "07741c45",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "078150f1",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "07b6f563",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "0862e8bf",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "08e075c7",
+    "n": 1,
+    "total": 0.5,
+    "gain": 0.5
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "08f4fc43",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "0977f2af",
+    "n": 1,
+    "total": 0,
+    "gain": 0
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "099778bb",
+    "n": 1,
+    "total": 0.5,
+    "gain": 0.5
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "09ba9854",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "09d032c9",
+    "n": 1,
+    "total": 0,
+    "gain": 0
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "0a34ad58",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "0a995998",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "0bb5a684",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "0bc8ad92",
+    "n": 1,
+    "total": 0.66666667,
+    "gain": 0.66666667
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "0bc8ad93",
+    "n": 1,
+    "total": 0.66666667,
+    "gain": 0.66666667
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "0db4c65d",
+    "n": 1,
+    "total": 0.5,
+    "gain": 0.5
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "0ddfec37",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "0e4e4c46",
+    "n": 1,
+    "total": 0.5,
+    "gain": 0.5
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "0e5e2d1a",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "0ea62687",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "0edc2aef",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "0f05491a",
+    "n": 1,
+    "total": 0.5,
+    "gain": 0.5
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "10d9b85a",
+    "n": 1,
+    "total": 0,
+    "gain": 0
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "10e09553",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "118b2229",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "1192316e",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "129d1232",
+    "n": 1,
+    "total": 0.33333333,
+    "gain": 0.33333333
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "1568498a",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "15745da0",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "157a136e",
+    "n": 1,
+    "total": 0,
+    "gain": 0
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "16c90bf4",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "184da446",
+    "n": 1,
+    "total": 0.5,
+    "gain": 0.5
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "18bc8abd",
+    "n": 1,
+    "total": 0.5,
+    "gain": 0.5
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "18dcd5a5",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "1903aded",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "195a1a1b",
+    "n": 1,
+    "total": 0,
+    "gain": 0
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "19b5f2b3",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "1a1907b4",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "1a8a66a6",
+    "n": 1,
+    "total": 0.75,
+    "gain": 0.75
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "1b9b7252",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "1c0ddc50",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "1c549ce4",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "1cea1afa",
+    "n": 1,
+    "total": 0.5,
+    "gain": 0.5
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "1d4da289",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "1d4e3b97",
+    "n": 1,
+    "total": 0,
+    "gain": 0
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "1da05512",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "1de5cff2",
+    "n": 1,
+    "total": 0,
+    "gain": 0
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "1e043500",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "1f2b8d4f",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "1faac195",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "2133c1b5",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "21436231",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "21d02d0d",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "22d2cb42",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "2311e44b",
+    "n": 1,
+    "total": 0.5,
+    "gain": 0.5
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "2318644b",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "25e5aa4f",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "2698e78f",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "26bdc477",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "27016adc",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "2788b940",
+    "n": 1,
+    "total": 0.5,
+    "gain": 0.5
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "28bcfaac",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "28dc39ac",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "29f2956b",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "2a1811e2",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "2b8f3739",
+    "n": 1,
+    "total": 0,
+    "gain": 0
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "2bf43736",
+    "n": 1,
+    "total": 0,
+    "gain": 0
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "2c63a862",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "2ce6a0f2",
+    "n": 1,
+    "total": 0.75,
+    "gain": 0.75
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "2e6d26dc",
+    "n": 1,
+    "total": 0.75,
+    "gain": 0.75
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "2ebe6c90",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "2ebe6c92",
+    "n": 1,
+    "total": 0,
+    "gain": 0
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "311778f1",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "32260d93",
+    "n": 1,
+    "total": 0,
+    "gain": 0
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "3249768e",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "352ab8bd",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "35a27287",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "36580ce8",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "36b9f61e",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "370a8ff4",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "37d43f65",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "37f165cf",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "38146c39",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "3a704032",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "3b6f954b",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "3ba21379",
+    "n": 1,
+    "total": 0.5,
+    "gain": 0.5
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "3c1045c8",
+    "n": 1,
+    "total": 0.5,
+    "gain": 0.5
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "3d86fd0a",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "3e321797",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "3f1e9474",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "3fdac837",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "3fe836c9",
+    "n": 1,
+    "total": 0.5,
+    "gain": 0.5
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "4100d0a0",
+    "n": 1,
+    "total": 0,
+    "gain": 0
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "41275add",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "41698283",
+    "n": 1,
+    "total": 0.5,
+    "gain": 0.5
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "42ec0761",
+    "n": 1,
+    "total": 0,
+    "gain": 0
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "4388e9dd",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "45dc21b6",
+    "n": 1,
+    "total": 0.5,
+    "gain": 0.5
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "46a3abf7",
+    "n": 1,
+    "total": 0.33333333,
+    "gain": 0.33333333
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "488d3006",
+    "n": 1,
+    "total": 0,
+    "gain": 0
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "4adc0475",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "4b24c848",
+    "n": 1,
+    "total": 0.5,
+    "gain": 0.5
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "4baee567",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "4bc144e2",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "4c36ccef",
+    "n": 1,
+    "total": 0,
+    "gain": 0
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "4d6b87c8",
+    "n": 1,
+    "total": 0.5,
+    "gain": 0.5
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "4dfccbf7",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "4dfccbf8",
+    "n": 1,
+    "total": -0.5,
+    "gain": -0.5
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "4f54b7c9",
+    "n": 1,
+    "total": 0.5,
+    "gain": 0.5
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "4fd1909e",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "5025383b",
+    "n": 1,
+    "total": 0,
+    "gain": 0
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "505af2f5",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "50635ada",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "51a45a95",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "51b23612",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "51c32626",
+    "n": 1,
+    "total": 0.5,
+    "gain": 0.5
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "54026fce",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "545bd2b5",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "55241a1f",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "561fabcd",
+    "n": 1,
+    "total": 0,
+    "gain": 0
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "577d4d32",
+    "n": 1,
+    "total": 0,
+    "gain": 0
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "57f827a0",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "5809eb10",
+    "n": 1,
+    "total": 0,
+    "gain": 0
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "5831f84d",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "58470ed2",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "58bf7951",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "58ef2f1c",
+    "n": 1,
+    "total": 0,
+    "gain": 0
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "59524333",
+    "n": 1,
+    "total": 0.5,
+    "gain": 0.5
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "5a4f22c0",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "5a7937c8",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "5c40ec5b",
+    "n": 1,
+    "total": 0.5,
+    "gain": 0.5
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "5d3d2817",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "5e1b23de",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "60036106",
+    "n": 1,
+    "total": 0.5,
+    "gain": 0.5
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "60159905",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "603deb26",
+    "n": 1,
+    "total": 0.5,
+    "gain": 0.5
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "60472f9c",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "6071bd76",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "60bf93ed",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "60d45044",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "618f13b2",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "61f8c8f8",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "6222b6eb",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "6456829e",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "65240037",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "6613b389",
+    "n": 1,
+    "total": 0.66666667,
+    "gain": 0.66666667
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "66f24dbb",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "67e0d0f2",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "681a1674",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "69fee5aa",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "6a1eabeb",
+    "n": 1,
+    "total": 0.5,
+    "gain": 0.5
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "6a27ffc2",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "6ade9755",
+    "n": 1,
+    "total": 0,
+    "gain": 0
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "6ae235be",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "6aeb4375",
+    "n": 1,
+    "total": 0.5,
+    "gain": 0.5
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "6b168ec8",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "6b7dfb22",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "6c49646a",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "6cb6f249",
+    "n": 1,
+    "total": 0.5,
+    "gain": 0.5
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "6d550036",
+    "n": 1,
+    "total": 0.25,
+    "gain": 0.25
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "6e984301",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "6e984302",
+    "n": 1,
+    "total": 0,
+    "gain": 0
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "6f9b354f",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "7024f17c",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "70b3e69b",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "71017276",
+    "n": 1,
+    "total": 0,
+    "gain": 0
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "71017277",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "71315a70",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "7161e7e2",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "71a3fd6b",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "720133ac",
+    "n": 1,
+    "total": 0.5,
+    "gain": 0.5
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "726462e0",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "72e3ee87",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "73d42213",
+    "n": 1,
+    "total": 0.5,
+    "gain": 0.5
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "7401057b",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "7405e8b1",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "7527f7e2",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "75499fd8",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "75832dbd",
+    "n": 1,
+    "total": 0,
+    "gain": 0
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "75f70248",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "76d63226",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "778164c6",
+    "n": 1,
+    "total": 0,
+    "gain": 0
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "77eafa52",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "7a87bd0c",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "7a8d0b71",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "7e00a6cb",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "7e974930",
+    "n": 1,
+    "total": 0.5,
+    "gain": 0.5
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "8077ef71",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "80ec1f4f",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "81507db6",
+    "n": 1,
+    "total": 0.8,
+    "gain": 0.8
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "830ce83f",
+    "n": 1,
+    "total": 0.5,
+    "gain": 0.5
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "8464fc84",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "852ce960",
+    "n": 1,
+    "total": 0.5,
+    "gain": 0.5
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "853b0a1d",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "8550ddae",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "85fa3a3f",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "86b68151",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "86f00804",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "8752c811",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "87f22b4a",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "88432d0a",
+    "n": 1,
+    "total": 0.25,
+    "gain": 0.25
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "89527b6b",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "8979f9ec",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "89941a93",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "89941a94",
+    "n": 1,
+    "total": 0.5,
+    "gain": 0.5
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "8a137a7f",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "8a2466db",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "8aef76bc",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "8b9d4367",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "8c18457d",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "8cf4d046",
+    "n": 1,
+    "total": 0.5,
+    "gain": 0.5
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "8cf51dda",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "8e91e7d9",
+    "n": 1,
+    "total": 0,
+    "gain": 0
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "8e9d538c",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "8ebdbe50",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "8fb83627",
+    "n": 1,
+    "total": 0.5,
+    "gain": 0.5
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "91b15a6e",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "92a0aa75",
+    "n": 1,
+    "total": 0.5,
+    "gain": 0.5
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "945e3d21",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "94f70d80",
+    "n": 1,
+    "total": 0,
+    "gain": 0
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "95228167",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "95bcc1c8",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "982b5123",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "993da5e2",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "9a707b81",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "9a707b82",
+    "n": 1,
+    "total": 0.5,
+    "gain": 0.5
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "9aaed6a3",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "9bbe84a2",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "9d25d4e0",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "9ea5eabc",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "9ee3ecd6",
+    "n": 1,
+    "total": 0.5,
+    "gain": 0.5
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "a06e4cfe",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "a08a253f",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "a11281a2",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "a1cc6108",
+    "n": 1,
+    "total": 0.5,
+    "gain": 0.5
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "a1eacc2a",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "a2f3aa27",
+    "n": 1,
+    "total": 0.5,
+    "gain": 0.5
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "a3045048",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "a3332713",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "a346bb18",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "a3838d2b",
+    "n": 1,
+    "total": 0.83333333,
+    "gain": 0.83333333
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "a40e080f",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "a4996e51",
+    "n": 1,
+    "total": 0.5,
+    "gain": 0.5
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "a82c026e",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "a89d7624",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "a96c20ee",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "a9f6b44c",
+    "n": 1,
+    "total": 0.66666667,
+    "gain": 0.66666667
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "aae3761f",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "ac031881",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "ad7109d1",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "af082822",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "af8d2e46",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "afdc33df",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "affe2881",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "b01defab",
+    "n": 1,
+    "total": 0.5,
+    "gain": 0.5
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "b0479f84",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "b29f3365",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "b320f3f8",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "b3c15d39",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "b46e15ed",
+    "n": 1,
+    "total": 0.25,
+    "gain": 0.25
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "b46e15ee",
+    "n": 1,
+    "total": 0.75,
+    "gain": 0.75
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "b5ef892d",
+    "n": 1,
+    "total": 0.66666667,
+    "gain": 0.66666667
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "b6019101",
+    "n": 1,
+    "total": 0.5,
+    "gain": 0.5
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "b6025781",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "b759caee",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "b86304ba",
+    "n": 1,
+    "total": 0,
+    "gain": 0
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "b9cfe692",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "ba358f49",
+    "n": 1,
+    "total": 0.5,
+    "gain": 0.5
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "ba61f0b9",
+    "n": 1,
+    "total": 0.5,
+    "gain": 0.5
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "bb7c3b45",
+    "n": 1,
+    "total": 0.5,
+    "gain": 0.5
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "bbf86515",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "bc149d6b",
+    "n": 1,
+    "total": 0.5,
+    "gain": 0.5
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "bc8a6e93",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "bcbe585f",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "bf659f65",
+    "n": 1,
+    "total": 0.33333333,
+    "gain": 0.33333333
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "c14c00dd",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "c18a7dc8",
+    "n": 1,
+    "total": 0,
+    "gain": 0
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "c19f7a0b",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "c2ac3c61",
+    "n": 1,
+    "total": 0.5,
+    "gain": 0.5
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "c4a1ceb8",
+    "n": 1,
+    "total": 0.75,
+    "gain": 0.75
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "c4ea545c",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "c4f10528",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "c5e8278d",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "c6853660",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "c7cf7dfd",
+    "n": 1,
+    "total": 0,
+    "gain": 0
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "c7dc5443",
+    "n": 1,
+    "total": 0.5,
+    "gain": 0.5
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "c8090214",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "c8c3f81d",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "c8f1aeed",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "c960da58",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "c9f37c46",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "caf03d32",
+    "n": 1,
+    "total": 0,
+    "gain": 0
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "caf9ead2",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "cc06de0d",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "cc539528",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "cc5ded98",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "cc6d1ec1",
+    "n": 1,
+    "total": 0.5,
+    "gain": 0.5
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "ccb36322",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "ce6d2d27",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "ceb54acb",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "cf22b7bf",
+    "n": 1,
+    "total": 0.5,
+    "gain": 0.5
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "d01c6aa8",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "d23cf73b",
+    "n": 1,
+    "total": 0.5,
+    "gain": 0.5
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "d24813b1",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "d3ab962e",
+    "n": 1,
+    "total": 0,
+    "gain": 0
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "d52b4f67",
+    "n": 1,
+    "total": 0,
+    "gain": 0
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "d596882b",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "d6062bb9",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "d6233ab6",
+    "n": 1,
+    "total": 0,
+    "gain": 0
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "d682f1a2",
+    "n": 1,
+    "total": 0.66666667,
+    "gain": 0.66666667
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "d7c942c3",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "d851d5ba",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "d905b33f",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "dad224aa",
+    "n": 1,
+    "total": 0.5,
+    "gain": 0.5
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "db467c8c",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "dc439ea3",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "dccbc061",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "dcfa8644",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "dd2973ad",
+    "n": 1,
+    "total": 0,
+    "gain": 0
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "dfde3500",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "e01b8e2f",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "e25c3b8d",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "e3038f8c",
+    "n": 1,
+    "total": 0.75,
+    "gain": 0.75
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "e3fc4d6e",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "e47becba",
+    "n": 1,
+    "total": 0,
+    "gain": 0
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "e48988bc",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "e493bb7c",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "e4e14d04",
+    "n": 1,
+    "total": 0.5,
+    "gain": 0.5
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "e56a43b9",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "e6041065",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "e61a7584",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "e66b632c",
+    "n": 1,
+    "total": 0.5,
+    "gain": 0.5
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "e831120c",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "e8a79c70",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "e9327a54",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "e982271f",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "eac54adc",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "eac54add",
+    "n": 1,
+    "total": 0,
+    "gain": 0
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "eaca4986",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "eace081b",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "ec81a493",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "ed4ddc30",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "edced276",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "eeda8a6d",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "ef66a6e5",
+    "n": 1,
+    "total": 0.5,
+    "gain": 0.5
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "ef9cf60a",
+    "n": 1,
+    "total": 0.5,
+    "gain": 0.5
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "efc3f7c2",
+    "n": 1,
+    "total": 0.5,
+    "gain": 0.5
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "f0853d11",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "f0e564bc",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "f35224e0",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "f4f1d8a4",
+    "n": 1,
+    "total": 0,
+    "gain": 0
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "f523d9fe",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "f685340e",
+    "n": 1,
+    "total": 0.5,
+    "gain": 0.5
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "f8c5f88b",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "f9e8c073",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "faba32e5",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "fca70973",
+    "n": 1,
+    "total": 0,
+    "gain": 0
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "fca762bc",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "fea54f57",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_0a05b494",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_0b2f1d21",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_15e38248",
+    "n": 1,
+    "total": 0.25,
+    "gain": 0.25
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_18c2b244",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_1916e0ea",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_194be4b3",
+    "n": 1,
+    "total": 0.4,
+    "gain": 0.4
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_1a1dc16d",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_1d4ab0c9",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_1d80365e",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_1e4a8aeb",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_1e4a8aec",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_213fd887",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_21adecb5",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_2312f94c",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_2487a7cb",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_2655b836",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_2ba83207",
+    "n": 1,
+    "total": 0.75,
+    "gain": 0.75
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_2c50253f",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_2d58bcd6",
+    "n": 1,
+    "total": 0.5,
+    "gain": 0.5
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_2f56ae70",
+    "n": 1,
+    "total": 0.66666667,
+    "gain": 0.66666667
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_2f584639",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_2f8be40d",
+    "n": 1,
+    "total": 0.33333333,
+    "gain": 0.33333333
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_2f91af09",
+    "n": 1,
+    "total": 0.66666667,
+    "gain": 0.66666667
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_31ff4165",
+    "n": 1,
+    "total": 0.4,
+    "gain": 0.4
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_372c3eed",
+    "n": 1,
+    "total": 0.66666667,
+    "gain": 0.66666667
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_385a5000",
+    "n": 1,
+    "total": 0.5,
+    "gain": 0.5
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_45189cb4",
+    "n": 1,
+    "total": 0.66666667,
+    "gain": 0.66666667
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_468eb063",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_468eb064",
+    "n": 1,
+    "total": 0,
+    "gain": 0
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_483dd43c",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_4929293a",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_4929293b",
+    "n": 1,
+    "total": -0.5,
+    "gain": -0.5
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_4cd9eba1",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_4edbafa2",
+    "n": 1,
+    "total": 0.5,
+    "gain": 0.5
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_4ef30696",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_4fc4f797",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_5438fa52",
+    "n": 1,
+    "total": 0.5,
+    "gain": 0.5
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_5501fe77",
+    "n": 1,
+    "total": 0.66666667,
+    "gain": 0.66666667
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_59149c77",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_59149c78",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_59c863d7",
+    "n": 1,
+    "total": 0.25,
+    "gain": 0.25
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_5dcc0aab",
+    "n": 1,
+    "total": 0.8,
+    "gain": 0.8
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_61e13b3c",
+    "n": 1,
+    "total": 0.5,
+    "gain": 0.5
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_65aabe59",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_68e94287",
+    "n": 1,
+    "total": 0.5,
+    "gain": 0.5
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_68e94288",
+    "n": 1,
+    "total": 0.5,
+    "gain": 0.5
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_6dc9b45b",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_6ed717ea",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_70e84552",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_731e37d7",
+    "n": 1,
+    "total": 0.75,
+    "gain": 0.75
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_74aed68e",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_76048e76",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_78cf46a3",
+    "n": 1,
+    "total": 0.5,
+    "gain": 0.5
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_7a0daae1",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_7abb270c",
+    "n": 1,
+    "total": 0.33333333,
+    "gain": 0.33333333
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_7bc6cf22",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_7ca326fa",
+    "n": 1,
+    "total": 0.66666667,
+    "gain": 0.66666667
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_7ddcf75f",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_7de946e7",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_7f6b06db",
+    "n": 1,
+    "total": 0.33333333,
+    "gain": 0.33333333
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_7fce9456",
+    "n": 1,
+    "total": 0.6,
+    "gain": 0.6
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_8279ba02",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_8279ba03",
+    "n": 1,
+    "total": 0,
+    "gain": 0
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_85da3956",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_88806d6e",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_8c8961ae",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_8e165409",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_93159ced",
+    "n": 1,
+    "total": 0.5,
+    "gain": 0.5
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_93f6379c",
+    "n": 1,
+    "total": 0.66666667,
+    "gain": 0.66666667
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_98f46fc6",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_9a159967",
+    "n": 1,
+    "total": 0.66666667,
+    "gain": 0.66666667
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_a1b77f9c",
+    "n": 1,
+    "total": 0.83333333,
+    "gain": 0.83333333
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_a2d1d1f6",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_a56e767c",
+    "n": 1,
+    "total": 0.66666667,
+    "gain": 0.66666667
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_ab202e7f",
+    "n": 1,
+    "total": 0.2,
+    "gain": 0.2
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_af6db32f",
+    "n": 1,
+    "total": 0,
+    "gain": 0
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_b0863698",
+    "n": 1,
+    "total": 0,
+    "gain": 0
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_b4a80587",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_b5700ca0",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_b5700ca9",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_c27434e8",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_cd90e484",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_d12ceb0e",
+    "n": 1,
+    "total": 0.66666667,
+    "gain": 0.66666667
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_d31cdae3",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_d6585ce8",
+    "n": 1,
+    "total": 0.6,
+    "gain": 0.6
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_d6585ce9",
+    "n": 1,
+    "total": 0.4,
+    "gain": 0.4
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_d84a3211",
+    "n": 1,
+    "total": 0.75,
+    "gain": 0.75
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_d9af6064",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_e05b82a6",
+    "n": 1,
+    "total": 0.75,
+    "gain": 0.75
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_e061b84f",
+    "n": 1,
+    "total": 0,
+    "gain": 0
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_e061b84g",
+    "n": 1,
+    "total": 0.33333333,
+    "gain": 0.33333333
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_e072b769",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_e414231e",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_e414231f",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_ec93e27f",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_f2262a51",
+    "n": 1,
+    "total": 0,
+    "gain": 0
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_f420262c",
+    "n": 1,
+    "total": 0.4,
+    "gain": 0.4
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_f420262d",
+    "n": 1,
+    "total": 0.4,
+    "gain": 0.4
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_f49edff3",
+    "n": 1,
+    "total": 0.66666667,
+    "gain": 0.66666667
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_fa19884c",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_fa19884d",
+    "n": 1,
+    "total": 1,
+    "gain": 1
+  },
+  {
+    "dataset": "LongMemEval-S",
+    "cluster": "gpt4_fe651585",
+    "n": 1,
+    "total": 0.5,
+    "gain": 0.5
+  }
+]

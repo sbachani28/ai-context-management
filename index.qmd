@@ -1,0 +1,74 @@
+---
+title: "Context Management Across AI Tools: Memory, Reliability, and Cost"
+pagetitle: "Context Management Across AI Tools"
+toc: false
+page-layout: full
+---
+
+```{r}
+#| include: false
+source('R/context_setup.R')
+```
+
+::: {.hero}
+<div class="eyebrow">Student research / Edition 02</div>
+
+# Context Management Across AI Tools {.unlisted}
+
+<p class="hero-subtitle">Memory, Reliability, and Cost</p>
+
+:::
+
+```{=html}
+<section class="author-story" aria-labelledby="why-i-started-this-project">
+  <figure class="author-portrait">
+    <img src="assets/sanskar.jpg" alt="Sanskar Bachani" loading="eager" fetchpriority="high" decoding="async">
+    <figcaption>Sanskar Bachani</figcaption>
+  </figure>
+  <div class="author-story-copy">
+    <h2 id="why-i-started-this-project">Why I started this project</h2>
+    <p>During my summer internship, I went to a networking event in San Francisco. It gave me the idea for a tool to help people manage context across AI tools. That idea led to this study.</p>
+    <p>I am building the tool as I do this research. I want to learn what AI tools should keep, how they find it, and how to move it between tools. The results help me choose what to build and what to test next.</p>
+  </div>
+</section>
+```
+
+<p class="dek">What should an AI tool remember? We test how tools can find the right facts, how much context they need, and what it costs to keep it.</p>
+
+<div class="chips"><span class="chip">2 public memory datasets</span><span class="chip">Test it with our code</span><span class="chip">R + Python + SQL + Quarto</span></div>
+
+[See the experiment](retrieval.qmd){.btn-research} [Explore the datasets](datasets.qmd){.btn-research}
+
+<div class="stat-grid">
+<div class="stat"><strong>`r format(cm$question_records,big.mark=',')`</strong><span>Public questions in the study</span></div>
+<div class="stat"><strong>`r format(cm$retrieval_evaluations,big.mark=',')`</strong><span>Tests across methods and session limits</span></div>
+<div class="stat"><strong>`r cm$ruler_score_cells`</strong><span>Scores from published model tests</span></div>
+</div>
+
+<div class="banner"><strong>What we measured.</strong> We tested ways to find facts in past chats. We did not ask an AI model to write answers. Each question appears in more than one test, so test counts do not count people. We label scores from other studies and cost examples as such.</div>
+
+## The question we test
+
+**Which way of choosing context finds the most useful facts?** We test three methods: BM25 keyword search, keeping the latest chats, and a random choice. We set four limits on how many chat sessions each method can keep. These simple methods give us a starting point for testing the tool.
+
+<div class="card-grid">
+<div class="research-card"><span class="tag">01 / The data</span><h3>What needs to stay?</h3><p>See the types of questions, the size of each chat history, and where the key facts sit.</p><a href="datasets.html">View the data →</a></div>
+<div class="research-card"><span class="tag">02 / Our test</span><h3>Which facts do we find?</h3><p>Compare the three methods. See how scores change across tasks and chat histories.</p><a href="retrieval.html">Read the results →</a></div>
+<div class="research-card"><span class="tag">03 / Costs and value</span><h3>What could it save?</h3><p>Explore costs, time saved, and the point at which the tool could pay for itself.</p><a href="economics.html">Explore the costs →</a></div>
+</div>
+
+## What we found
+
+At a limit of five sessions, BM25 raises mean evidence recall by **`r round(100*effects$gain[effects$dataset=='LoCoMo'],1)` percentage points on LoCoMo** and **`r round(100*effects$gain[effects$dataset=='LongMemEval-S'],1)` points on LongMemEval-S**. Both gains use the latest-chat method as the base. Recall is the share of source sessions with key facts that a method finds. We score both methods on the same set of questions. These gains do not show how well an AI would answer or how much time a person would save.
+
+```{r recall-curves}
+#| echo: true
+#| code-fold: false
+#| fig-alt: "Share of marked source sessions found at each session limit, for all three methods and both datasets."
+```
+
+[How we ran the tests](methods.qmd) · [Download all test scores](data/processed/retrieval_runs.json)
+
+## What this means for the platform
+
+A memory tool should keep links to its source text. It should track which facts are current and keep projects apart. This test checks how we find text. We still need to test conflicting facts, moves between tools, ease of use, and the answers an AI gives.

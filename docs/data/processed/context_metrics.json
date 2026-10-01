@@ -1,0 +1,13 @@
+{
+  "question_records": 2486,
+  "eligible_questions": 2006,
+  "retrieval_evaluations": 24072,
+  "ruler_models": 45,
+  "ruler_score_cells": 264,
+  "locomo_cluster_count": 10,
+  "bootstrap_resamples": 2000,
+  "ruler_within_claim_slope": -4.33450382,
+  "ruler_paired_models": 34,
+  "ruler_median_drop": 18.15,
+  "lme_reused_session_warning": "Question histories can reuse source sessions; no independence-based confidence interval is reported for LongMemEval."
+}

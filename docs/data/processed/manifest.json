@@ -1,0 +1,11 @@
+{
+  "source": "https://openrouter.ai/api/v1/models",
+  "retrieved_at_utc": "2026-10-01T04:30:35.757195+00:00",
+  "raw_sha256": "a5e40b38cfb0b7cb44d9ef1813291f092856c76fbe6239f06572ae509e2fb521",
+  "raw_rows": 462,
+  "selected_rows": 304,
+  "companies": 12,
+  "sql": "SELECT * FROM model_listing ORDER BY company, model_id",
+  "units": "Prices are USD per million tokens; observed routing base prices, not full invoices.",
+  "scope": "Single archived snapshot. No historical company-month panel yet."
+}

@@ -1,0 +1,21 @@
+{
+  "catalog_n": 304,
+  "companies": 12,
+  "priced_text_before_dedup": 283,
+  "priced_text_n": 283,
+  "aliases_removed": 0,
+  "zero_output_price_n": 10,
+  "median_input": 0.55,
+  "median_output": 2.25,
+  "output_p10": 0.24,
+  "output_p90": 25,
+  "output_p90_p10": 104.16666667,
+  "spearman_context_output": 0.28034746,
+  "context_coefficient": 0.17056793,
+  "doubling_context_association_pct": 12.55014639,
+  "fit_r2": 0.38244125,
+  "unadjusted_context_coef": 0.42225081,
+  "no_openai_context_coef": 0.3243569,
+  "price_override_n": 65,
+  "interpretation": "Descriptive catalog association, not a causal elasticity, quality-adjusted price index or representative provider comparison."
+}

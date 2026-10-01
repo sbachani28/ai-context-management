@@ -1,0 +1,331 @@
+[
+  {
+    "objectID": "pulse.html",
+    "href": "pulse.html",
+    "title": "AI context — User survey",
+    "section": "",
+    "text": "Context Management / User survey\n    Your use of AI context\n    Tell us when you have had to give an AI tool the same details more than once.\n    About 1 minute6 questionsAdults 18+\n  \n\n  \n    \n      A small part of a larger study\n      We study how people keep and move context between AI chats. Your answers will help us learn when people have to repeat details.\n      \n        Time periodThink about the last 7 days.\n        Your privacyWe do not ask for your name, email, or employer.\n        Your choiceYou choose whether to take part. You can leave at any time.\n      \n      Read how we will use the answers ↗\n    \n\n    \n      Your experienceLast 7 days\n      \n        \n          01 Taking part\n          You choose whether to take part. We do not ask for your name, email, or employer.\n          I am 18 or older and agree to take part.\n        \n\n        \n          02 Where do you use AI most?\n          Select a settingPaid workEducation or trainingPersonal useI do not use AIPrefer not to say\n        \n\n        \n          03 Have you used a generative AI tool in the last 7 days?\n          YesNoUnsure\n        \n\n        \n          04 Did you repeat information you had already given an AI tool?\n          Think about the last 7 days. Include project details or instructions you gave again, in the same tool or a new one.\n          YesNoUnsureI did not use AI\n        \n\n        \n          05 How much time did you spend giving those details again? Optional\n          Give your best estimate for the last 7 days. Enter 0 for none. Leave it blank if you are unsure or did not use AI.\n          minutes\n        \n\n        \n          06 Which AI tool did you use most? Optional\n          Select a tool, or leave unansweredChatGPTClaudeGeminiMicrosoft CopilotGitHub CopilotGrokDeepSeekPerplexityOther\n        \n\n        \n          Local preview This saves a file to your device. It does not send your answers to the research team.\n          Save response ↓\n          \n        \n      \n    \n  \n  Student research · We have not collected survey answers yet."
+  },
+  {
+    "objectID": "economics.html",
+    "href": "economics.html",
+    "title": "What does better context cost?",
+    "section": "",
+    "text": "Costs and value / Example inputs\nWe want to know the cost of doing a task well. Finding the right facts is one part of that cost. We have not measured gains in work output, what users would pay, or savings in a real firm."
+  },
+  {
+    "objectID": "economics.html#what-costs-should-we-count",
+    "href": "economics.html#what-costs-should-we-count",
+    "title": "What does better context cost?",
+    "section": "What costs should we count?",
+    "text": "What costs should we count?\n\\[C_{\\mathrm{task}}=C_{\\mathrm{inference}}+C_{\\mathrm{memory}}+C_{\\mathrm{storage}}+wT_{\\mathrm{active}}+C_{\\mathrm{errors}}.\\]\nA memory tool must extract, store, find, rank, and sum up text. Count the cost of each step. Spread setup costs across a stated number of uses. Track hands-on work time apart from time spent waiting for the model. Do not count the same fix as both time spent and an error cost. Cached text, which a system stores for reuse, may have a different price."
+  },
+  {
+    "objectID": "economics.html#the-cost-of-input-text",
+    "href": "economics.html#the-cost-of-input-text",
+    "title": "What does better context cost?",
+    "section": "The cost of input text",
+    "text": "The cost of input text\n\ncosts &lt;- expand.grid(input_tokens=c(8000,32000,128000,512000),price_per_million=c(.1,.5,1,3,10)) |&gt;\n  mutate(cost=input_tokens*price_per_million/1e6)\nggplot(costs,aes(factor(input_tokens/1000),factor(price_per_million),fill=cost)) +\n  geom_tile(colour='white') + geom_text(aes(label=sprintf('$%.3f',cost)),size=3.4) +\n  scale_fill_gradient(low='#edf5f7',high='#67aaa8') +\n  labs(x='Input tokens (thousands)',y='Assumed USD per million input tokens',fill='USD',\n       title='Input cost increases with context length and unit price',\n       subtitle='Example costs; excludes cached rates, output, and memory tools')\n\n\n\n\n\n\n\n\nThe chart uses example prices and token counts. It does not turn our word counts into billed tokens. A token is a unit of text that a model reads or writes. See the price page for the listed base prices in our sample."
+  },
+  {
+    "objectID": "economics.html#how-much-time-would-it-need-to-save",
+    "href": "economics.html#how-much-time-would-it-need-to-save",
+    "title": "What does better context cost?",
+    "section": "How much time would it need to save?",
+    "text": "How much time would it need to save?\n\n# Example inputs. We have not measured time saved or returns.\nscenario &lt;- expand.grid(tasks=c(20,100,500),minutes_saved=seq(0,5,.1)) |&gt;\n  mutate(net_value=tasks*minutes_saved/60*30 - 20 - tasks*.02)\nggplot(scenario,aes(minutes_saved,net_value,colour=factor(tasks))) +\n  geom_hline(yintercept=0,linetype='dashed') + geom_line(linewidth=1) +\n  labs(x='Assumed work minutes saved per task',y='Monthly value after costs (USD, example)',\n       colour='Tasks / month',title='The value depends on how much work time it saves',\n       subtitle='Assumptions: $30/hour, $20/month fixed cost, $0.02 extra cost/task')\n\n\n\n\n\n\n\n\nWe assume time is worth $30 per hour. We also assume a $20 monthly fee and $0.02 extra cost per task. These are example inputs, not measured market rates. We still need to measure time saved with real users and matched tasks."
+  },
+  {
+    "objectID": "economics.html#try-your-own-inputs",
+    "href": "economics.html#try-your-own-inputs",
+    "title": "What does better context cost?",
+    "section": "Try your own inputs",
+    "text": "Try your own inputs\nTasks / monthWork minutes saved / taskValue of work time ($/hour)Fixed cost / month ($)Extra AI cost / task ($)\n\nThe tool values time saved, then subtracts fixed and per-task costs. It leaves out error costs. It assumes each saved minute has the value you set. That value may not turn into cash savings. Change the inputs to see when the result changes."
+  },
+  {
+    "objectID": "economics.html#the-cost-of-switching-tools",
+    "href": "economics.html#the-cost-of-switching-tools",
+    "title": "What does better context cost?",
+    "section": "The cost of switching tools",
+    "text": "The cost of switching tools\nMoving to a new AI tool can take time. Users may need to bring their project notes and past decisions with them. A tool that lets them move this context could reduce that burden. Access rules, file formats, and upkeep could limit the gain. OECD research on data portability explores this wider issue. Our study has not measured the effect of our tool on switching costs."
+  },
+  {
+    "objectID": "economics.html#how-to-test-the-business-case",
+    "href": "economics.html#how-to-test-the-business-case",
+    "title": "What does better context cost?",
+    "section": "How to test the business case",
+    "text": "How to test the business case\nFirst, choose what to compare the tool with. Check work quality before putting a price on time saved. Count setup and upkeep costs. Show where the tool fails as well as where it helps. In a later test, assign matched tasks to each workflow at random. Measure time spent on setup and fixes. Have graders score the work without knowing which tool produced it. A small survey can describe users’ views. It cannot prove that the tool saves money."
+  },
+  {
+    "objectID": "market.html",
+    "href": "market.html",
+    "title": "AI model prices and context limits",
+    "section": "",
+    "text": "Our analysis · R + SQL · One point in time\nWe use 304 model listings from 12 developers. OpenRouter lists the base price to route text to each model. We show dollars per million tokens. A token is a unit of text a model reads or writes. These prices do not show sales, usage, or chat subscription fees. Source and price fields."
+  },
+  {
+    "objectID": "market.html#which-developers-are-in-the-data",
+    "href": "market.html#which-developers-are-in-the-data",
+    "title": "AI model prices and context limits",
+    "section": "Which developers are in the data?",
+    "text": "Which developers are in the data?\n\nlibrary(ggplot2)\nlibrary(dplyr)\n\ntheme_set(\n  theme_minimal(base_size = 12) +\n    theme(\n      panel.grid.minor = element_blank(),\n      plot.title = element_text(face = \"bold\", color = \"#102824\"),\n      plot.subtitle = element_text(color = \"#53635f\"),\n      axis.title = element_text(color = \"#53635f\"),\n      plot.background = element_rect(fill = \"#fcfbf7\", color = NA)\n    )\n)\n\ncatalog &lt;- jsonlite::fromJSON(\"data/processed/models.json\")\ncounts &lt;- catalog |&gt;\n  count(company, name = \"listings\") |&gt;\n  arrange(desc(listings))\n\nggplot(counts, aes(reorder(company, listings), listings)) +\n  geom_col(fill = \"#286854\", width = .67) +\n  coord_flip() +\n  labs(\n    x = NULL,\n    y = \"Model listings\",\n    title = \"Some developers have more listings in this sample\",\n    subtitle = \"These counts do not show market share\"\n  )\n\n\n\n\n\n\n\n\nSome developers have more listings than others. Each listing gets one row in our price model. This gives firms with more listings more weight unless we change the fit. A share of listings is not a share of the AI market."
+  },
+  {
+    "objectID": "market.html#compare-model-versions",
+    "href": "market.html#compare-model-versions",
+    "title": "AI model prices and context limits",
+    "section": "Compare model versions",
+    "text": "Compare model versions\nThe table has 283 paid model versions that produce text. We removed 0 listings that repeat the same model settings. Some models can read images too. The cost uses the input and billed output tokens you enter. It leaves out extra fees, cached text rates, price tiers, tool calls, and reasoning tokens you have not counted. A star marks a listing with price overrides in the source. Treat the result as a base-cost example, not a quote.\n\n\nDeveloperAll developers\nFind a model\nInput tokens\nBilled output tokens\n\n\n\n\n\n\nModel\nDeveloper\nContext\nInput $/M\nOutput $/M\nBase cost"
+  },
+  {
+    "objectID": "market.html#how-context-size-and-price-are-linked",
+    "href": "market.html#how-context-size-and-price-are-linked",
+    "title": "AI model prices and context limits",
+    "section": "How context size and price are linked",
+    "text": "How context size and price are linked\nTo study prices, we fit a regression. It links context size to output price. It also accounts for who makes the model and whether it reads images. The equation is:\n\\[\\log(p_j)=\\alpha+\\beta\\log(c_j)+\\gamma_{developer(j)}+\\delta\\,image_j+\\epsilon_j.\\]\nThe fit uses 283 model versions. The context coefficient is 0.171, and R² is 0.382. R² measures the share of variation in log prices that the fit explains in this sample. At twice the context size, the fitted output price differs by about 12.6%. This holds the developer and image support fixed.\nThis fit does not show cause and effect. It does not tell us how buyers would react to a price change. More context does not prove better quality. We lack matched scores over time, demand, and the cost of running each model. We also lack price changes driven by outside events. Model families and firms may share errors. We do not treat each listing as an independent sample for tests of significance.\n\ncatalog &lt;- jsonlite::fromJSON('data/processed/analysis_sample.json')\nfit &lt;- lm(log(output_price) ~ log(context_tokens) + factor(company) + image_input,\n          data = catalog)\ncoef(fit)[\"log(context_tokens)\"]\n\nlog(context_tokens) \n          0.1705679 \n\n\n\nlibrary(ggplot2)\nlibrary(dplyr)\n\ntheme_set(\n  theme_minimal(base_size = 12) +\n    theme(\n      panel.grid.minor = element_blank(),\n      plot.title = element_text(face = \"bold\", color = \"#102824\"),\n      plot.subtitle = element_text(color = \"#53635f\"),\n      axis.title = element_text(color = \"#53635f\"),\n      plot.background = element_rect(fill = \"#fcfbf7\", color = NA)\n    )\n)\n\ncatalog &lt;- jsonlite::fromJSON(\"data/processed/analysis_sample.json\")\n\nggplot(catalog, aes(context_tokens, output_price, color = company)) +\n  geom_point(alpha = .65, size = 2) +\n  scale_x_log10() +\n  scale_y_log10() +\n  guides(color = \"none\") +\n  labs(\n    x = \"Context window (tokens) · log scale\",\n    y = \"Output USD / million tokens · log scale\",\n    title = \"Context size is one of many model traits\",\n    subtitle = \"Each point is a model version; color shows the developer\"\n  )\n\n\n\n\n\n\n\n\n\nWhat changes when we change the fit?\n\n\n\nPrice model\nContext coefficient\n\n\n\n\nContext only\n0.422\n\n\nDeveloper controls + image-input support\n0.171\n\n\nSame controls, excluding OpenAI\n0.324\n\n\n\nThe estimate changes when we change the fit or the sample. These checks do not remove bias from traits we have not measured. The paid sample has 65 listings with price overrides. The fit uses base prices for all of them.\nDownload the price data (JSON) · Read the R code · Source details"
+  },
+  {
+    "objectID": "datasets.html",
+    "href": "datasets.html",
+    "title": "The data behind the study",
+    "section": "",
+    "text": "Public data / Our counts\nWe use the full LoCoMo file and the cleaned LongMemEval-S release. We saved the source version for each and counted the records. A benchmark is a shared set of tasks used to test a method. LoCoMo source · LongMemEval source."
+  },
+  {
+    "objectID": "datasets.html#what-the-counts-mean",
+    "href": "datasets.html#what-the-counts-mean",
+    "title": "The data behind the study",
+    "section": "What the counts mean",
+    "text": "What the counts mean\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDataset\nQuestions\nEligible\nHistories\nSession appearances\nDistinct session IDs\nTurn appearances\n\n\n\n\nLoCoMo\n1,986\n1,536\n10\n272\n272\n5,882\n\n\nLongMemEval-S\n500\n470\n500\n23,867\n19,195\n246,750\n\n\n\n\n\nQuestions, chat sessions, messages, and test runs are different counts. LoCoMo has ten chat histories that many questions share. LongMemEval gives each question a history, but some histories reuse the same sessions. A repeated session is not a new source. These files mix chats made for tests with other shared text. They do not form a sample of our users or of all workers."
+  },
+  {
+    "objectID": "datasets.html#what-do-the-questions-test",
+    "href": "datasets.html#what-do-the-questions-test",
+    "title": "The data behind the study",
+    "section": "What do the questions test?",
+    "text": "What do the questions test?\n\ntask_counts &lt;- q |&gt; count(dataset, category)\nggplot(task_counts, aes(n, reorder(category, n), fill=dataset)) +\n  geom_col(show.legend=FALSE) + facet_wrap(~dataset, scales='free_y') +\n  scale_fill_manual(values=c('#287d70','#39769c')) +\n  labs(x='Questions', y=NULL, title='The two test sets ask different kinds of questions')\n\n\n\n\n\n\n\n\nWe leave questions with no answer out of the recall scores. This includes the adversarial tests, which ask about facts the history cannot supply. We keep them in the data counts. We also leave out questions with missing source labels or labels we cannot match. The download lists each reason. A later test should check whether an AI knows when to say it does not know."
+  },
+  {
+    "objectID": "datasets.html#how-long-are-the-chat-histories",
+    "href": "datasets.html#how-long-are-the-chat-histories",
+    "title": "The data behind the study",
+    "section": "How long are the chat histories?",
+    "text": "How long are the chat histories?\n\nggplot(h, aes(words, colour=dataset)) + stat_ecdf(linewidth=1) +\n  scale_x_log10(labels=scales::comma) + scale_y_continuous(labels=scales::percent) +\n  labs(x='Words in a chat history (log scale)', y='Share at or below this length',\n       colour=NULL, title='LongMemEval gives each question more text to search',\n       subtitle='LoCoMo: 10 conversations; LongMemEval-S: 500 question histories')\n\n\n\n\n\n\n\n\nWe count words split by spaces, including names, roles, and dates. Words are not the same as tokens, the text units an AI model reads. In this chart, LoCoMo adds one record per chat history. LongMemEval adds one per question history."
+  },
+  {
+    "objectID": "datasets.html#where-are-the-key-facts",
+    "href": "datasets.html#where-are-the-key-facts",
+    "title": "The data behind the study",
+    "section": "Where are the key facts?",
+    "text": "Where are the key facts?\n\nggplot(filter(q, eligible), aes(earliest_evidence, fill=dataset)) +\n  geom_histogram(binwidth=.1, boundary=0, colour='white', show.legend=FALSE) +\n  facet_wrap(~dataset, scales='free_y') + scale_x_continuous(labels=scales::percent) +\n  labs(x='Position of the first marked source session', y='Questions we scored',\n       title='Key facts can sit far back in the chat history')\n\n\n\n\n\n\n\n\nWe place each session at the midpoint of its slot in the history. We then divide that position by the number of sessions. The scale runs from the start of the history to the end. A method that keeps the latest sessions can miss older facts. This chart shows where facts sit in the data. It does not show where an AI pays attention."
+  },
+  {
+    "objectID": "datasets.html#how-many-sessions-does-a-question-need",
+    "href": "datasets.html#how-many-sessions-does-a-question-need",
+    "title": "The data behind the study",
+    "section": "How many sessions does a question need?",
+    "text": "How many sessions does a question need?\n\nburden &lt;- filter(q, eligible) |&gt; count(dataset, gold_sessions) |&gt;\n  group_by(dataset) |&gt; mutate(share=n/sum(n))\nggplot(burden, aes(factor(gold_sessions), share, fill=dataset)) +\n  geom_col(show.legend=FALSE) + facet_wrap(~dataset, scales='free_x') +\n  scale_y_continuous(labels=scales::percent) +\n  labs(x='Number of marked source sessions needed', y='Share of questions we scored',\n       title='Some questions need facts from several sessions')\n\n\n\n\n\n\n\n\nSome questions need facts from more than one session. We show the mean share of marked sessions each method finds. We also show how often it finds them all. Other sessions may hold the same facts without a label. Our scores use the labels the source gives us."
+  },
+  {
+    "objectID": "datasets.html#sources-and-downloads",
+    "href": "datasets.html#sources-and-downloads",
+    "title": "The data behind the study",
+    "section": "Sources and downloads",
+    "text": "Sources and downloads\nQuestion list · Chat history list · Questions left out of scoring · Source versions and file checks\nLoCoMo uses the CC BY-NC 4.0 license. This study is for research, not commercial use. Check those terms before using the data in a product. LongMemEval lists the MIT license. Check the terms of its upstream sources too. We keep the raw chat files in the source project. This site shares counts and scores, not the raw chats."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Context Management Across AI Tools: Memory, Reliability, and Cost",
+    "section": "",
+    "text": "Student research / Edition 02\n\n\n\n\nMemory, Reliability, and Cost\nWhat should an AI tool remember? We test how tools can find the right facts, how much context they need, and what it costs to keep it.\nSee the experiment Explore the datasets"
+  },
+  {
+    "objectID": "index.html#the-question-we-test",
+    "href": "index.html#the-question-we-test",
+    "title": "Context Management Across AI Tools: Memory, Reliability, and Cost",
+    "section": "The question we test",
+    "text": "The question we test\nWhich way of choosing context finds the most useful facts? We test three methods: BM25 keyword search, keeping the latest chats, and a random choice. We set four limits on how many chat sessions each method can keep. These simple methods give us a starting point for testing the tool.\n\n\n01 / The data\n\nWhat needs to stay?\n\n\nSee the types of questions, the size of each chat history, and where the key facts sit.\n\nView the data →\n\n\n02 / Our test\n\nWhich facts do we find?\n\n\nCompare the three methods. See how scores change across tasks and chat histories.\n\nRead the results →\n\n\n03 / Costs and value\n\nWhat could it save?\n\n\nExplore costs, time saved, and the point at which the tool could pay for itself.\n\nExplore the costs →"
+  },
+  {
+    "objectID": "index.html#what-we-found",
+    "href": "index.html#what-we-found",
+    "title": "Context Management Across AI Tools: Memory, Reliability, and Cost",
+    "section": "What we found",
+    "text": "What we found\nAt a limit of five sessions, BM25 raises mean evidence recall by 63.8 percentage points on LoCoMo and 77.6 points on LongMemEval-S. Both gains use the latest-chat method as the base. Recall is the share of source sessions with key facts that a method finds. We score both methods on the same set of questions. These gains do not show how well an AI would answer or how much time a person would save.\n\nggplot(curves, aes(k, recall, colour=strategy)) +\n  geom_line(linewidth=1) + geom_point(size=2.5) + facet_wrap(~dataset) +\n  scale_colour_manual(values=palette) + scale_x_continuous(breaks=c(1,3,5,10)) +\n  scale_y_continuous(labels=scales::percent, limits=c(0,1)) +\n  labs(x='Session limit', y='Mean recall of marked source sessions', colour=NULL,\n       title='The method changes which source sessions we find',\n       subtitle='Our search test measures source recall, not answer quality')\n\n\n\n\n\n\n\n\nHow we ran the tests · Download all test scores"
+  },
+  {
+    "objectID": "index.html#what-this-means-for-the-platform",
+    "href": "index.html#what-this-means-for-the-platform",
+    "title": "Context Management Across AI Tools: Memory, Reliability, and Cost",
+    "section": "What this means for the platform",
+    "text": "What this means for the platform\nA memory tool should keep links to its source text. It should track which facts are current and keep projects apart. This test checks how we find text. We still need to test conflicting facts, moves between tools, ease of use, and the answers an AI gives."
+  },
+  {
+    "objectID": "retrieval.html",
+    "href": "retrieval.html",
+    "title": "How we choose which context to keep",
+    "section": "",
+    "text": "Our test / Finding facts in past chats\nWe ran 24,072 tests on 2,006 questions with usable source labels. Each test combines a question, a method, and a session limit. Each method sees the same question and chat history. We use the answer and source labels to score the chosen sessions, not to choose them. We made no calls to an AI model."
+  },
+  {
+    "objectID": "retrieval.html#three-methods-four-session-limits",
+    "href": "retrieval.html#three-methods-four-session-limits",
+    "title": "How we choose which context to keep",
+    "section": "Three methods, four session limits",
+    "text": "Three methods, four session limits\n\n\n\n\n\n\n\n\nMethod\nHow it chooses sessions\nWhy we include it\n\n\n\n\nBM25\nFinds query words, gives more weight to rare words, and adjusts for session length\nA simple keyword search\n\n\nRecent\nKeeps the latest sessions first\nA common way to trim a chat history\n\n\nRandom\nShuffles the sessions with a fixed seed\nA chance-based reference we can repeat\n\n\n\nEach method can keep up to 1, 3, 5, or 10 sessions. Sessions vary in length. The same count can mean a different number of words, tokens, and dollars. We search text and skip images. See the test settings for the full rules and the random seed."
+  },
+  {
+    "objectID": "retrieval.html#evidence-recall",
+    "href": "retrieval.html#evidence-recall",
+    "title": "How we choose which context to keep",
+    "section": "Evidence recall",
+    "text": "Evidence recall\n\nggplot(curves, aes(k, recall, colour=strategy)) +\n  geom_line(linewidth=1) + geom_point(size=2.5) + facet_wrap(~dataset) +\n  scale_colour_manual(values=palette) + scale_x_continuous(breaks=c(1,3,5,10)) +\n  scale_y_continuous(labels=scales::percent, limits=c(0,1)) +\n  labs(x='Session limit', y='Mean recall of marked source sessions', colour=NULL,\n       title='The method changes which source sessions we find',\n       subtitle='Our search test measures source recall, not answer quality')\n\n\n\n\n\n\n\n\nRecall is the share of a question’s marked source sessions that a method finds. A score of 100% means it found all of them. It does not mean an AI read those facts well or gave the right answer."
+  },
+  {
+    "objectID": "retrieval.html#finding-all-the-facts",
+    "href": "retrieval.html#finding-all-the-facts",
+    "title": "How we choose which context to keep",
+    "section": "Finding all the facts",
+    "text": "Finding all the facts\n\nggplot(curves, aes(k, all_hit, colour=strategy)) +\n  geom_line(linewidth=1) + geom_point(size=2.5) + facet_wrap(~dataset) +\n  scale_colour_manual(values=palette) + scale_x_continuous(breaks=c(1,3,5,10)) +\n  scale_y_continuous(labels=scales::percent, limits=c(0,1)) +\n  labs(x='Session limit', y='Share of questions with all marked sources found',\n       colour=NULL, title='Finding some sources is easier than finding them all')\n\n\n\n\n\n\n\n\nFinding some facts may not be enough. A task that spans several sessions may need them all. A tool should flag when it lacks part of the source text."
+  },
+  {
+    "objectID": "retrieval.html#scores-by-task",
+    "href": "retrieval.html#scores-by-task",
+    "title": "How we choose which context to keep",
+    "section": "Scores by task",
+    "text": "Scores by task\n\nggplot(cats, aes(strategy, category, fill=recall)) +\n  geom_tile(colour='white') + geom_text(aes(label=sprintf('%.0f%%',100*recall)),size=3.2) +\n  facet_wrap(~dataset, scales='free_y') +\n  scale_fill_gradient(low='#f0f3f7',high='#63b9a5',limits=c(0,1),labels=scales::percent) +\n  labs(x=NULL,y=NULL,fill='Recall',title='Scores vary by the type of question',\n       subtitle='Recall at a five-session limit; task counts are in the download')\n\n\n\n\n\n\n\n\nSome task groups have more questions than others. Read the scores with their counts. Download the scores and counts by task."
+  },
+  {
+    "objectID": "retrieval.html#score-gains-and-how-much-they-vary",
+    "href": "retrieval.html#score-gains-and-how-much-they-vary",
+    "title": "How we choose which context to keep",
+    "section": "Score gains and how much they vary",
+    "text": "Score gains and how much they vary\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDataset\nQuestions\nGain (pp)\nBM25 (%)\nRecent (%)\nLower (pp)\nUpper (pp)\n\n\n\n\nLoCoMo\n1536\n63.8\n83.7\n19.9\n59\n68.1\n\n\nLongMemEval-S\n470\n77.6\n91.3\n13.7\nNA\nNA\n\n\n\n\n\nFor LoCoMo, we draw from the ten chat histories 2,000 times, with replacement. Each draw keeps the questions from a history together. We then find the mean score gain, giving each question the same weight. The middle 95% of these gains forms a cluster-bootstrap interval. This shows how the gain varies when we change the mix of histories. Ten histories give a limited view of that range. We cannot treat it as a precise range for all users. LongMemEval reuses source text across histories. We show its score gain without an interval that assumes each question is independent.\n\n# Executed in R/context_analysis.R; paired differences are clustered by conversation.\nset.seed(20261001)\nx &lt;- subset(clusters, dataset == 'LoCoMo')\nboot &lt;- replicate(2000, {\n  sampled &lt;- sample(seq_len(nrow(x)), replace = TRUE)\n  sum(x$total[sampled]) / sum(x$n[sampled])\n})\nquantile(boot, c(.025, .975))\n\n\nggplot(filter(clusters,dataset=='LoCoMo'), aes(reorder(cluster,gain),100*gain)) +\n  geom_hline(yintercept=0,colour='#8797a1') + geom_segment(aes(xend=cluster,y=0,yend=100*gain),colour='#287d70') +\n  geom_point(size=3,colour='#287d70') + coord_flip() +\n  labs(x='Conversation',y='BM25 minus Recent (percentage points)',\n       title='Score gains in each of the ten chat histories',\n       subtitle='Each point shows the mean gain at a five-session limit')"
+  },
+  {
+    "objectID": "retrieval.html#how-much-text-do-we-need-to-keep",
+    "href": "retrieval.html#how-much-text-do-we-need-to-keep",
+    "title": "How we choose which context to keep",
+    "section": "How much text do we need to keep?",
+    "text": "How much text do we need to keep?\n\nggplot(curves, aes(retained_fraction,recall,colour=strategy)) +\n  geom_path(linewidth=1) + geom_point(size=3) + geom_text(aes(label=k),vjust=-.8,size=3,show.legend=FALSE) +\n  facet_wrap(~dataset) + scale_colour_manual(values=palette) +\n  scale_x_continuous(labels=scales::percent) + scale_y_continuous(labels=scales::percent,limits=c(0,1)) +\n  labs(x='Mean share of source words kept',y='Mean recall of marked source sessions',colour=NULL,\n       title='Keeping less text can mean losing key facts',subtitle='Point labels show session limits; words are not billed tokens')\n\n\n\n\n\n\n\n\nKeeping less text can mean losing key facts. This chart compares the share of words kept with recall. It does not measure answer quality or cost in dollars. We choose whole sessions, and their lengths vary."
+  },
+  {
+    "objectID": "retrieval.html#does-the-place-in-the-history-matter",
+    "href": "retrieval.html#does-the-place-in-the-history-matter",
+    "title": "How we choose which context to keep",
+    "section": "Does the place in the history matter?",
+    "text": "Does the place in the history matter?\n\nggplot(pos,aes(position_band,recall,colour=strategy,group=strategy)) +\n  geom_line(linewidth=1) + geom_point(size=2.5) + facet_wrap(~dataset) +\n  scale_colour_manual(values=palette) + scale_y_continuous(labels=scales::percent,limits=c(0,1)) +\n  theme(axis.text.x=element_text(angle=30,hjust=1)) +\n  labs(x='First marked source position (share of history)',y='Mean recall at k = 5',colour=NULL,\n       title='The latest-chat method tends to miss older facts')\n\n\n\n\n\n\n\n\nWe check where the marked facts sit after each test. The search methods do not see these source labels."
+  },
+  {
+    "objectID": "retrieval.html#explore-the-scores",
+    "href": "retrieval.html#explore-the-scores",
+    "title": "How we choose which context to keep",
+    "section": "Explore the scores",
+    "text": "Explore the scores\n\n\nDatasetLoCoMoLongMemEval-SSession limit13510\n\n\n\n\nAll test scores · Python test code · R analysis code"
+  },
+  {
+    "objectID": "evidence.html",
+    "href": "evidence.html",
+    "title": "What published tests show",
+    "section": "",
+    "text": "Published scores / Our analysis\nWe use a saved version of the RULER score table. It has 264 scores for 45 model versions. Other researchers ran these tests. The table gives combined scores, not each trial or monthly results. It includes older models and scores from outside teams. Their test details can differ."
+  },
+  {
+    "objectID": "evidence.html#what-happens-as-the-input-grows",
+    "href": "evidence.html#what-happens-as-the-input-grows",
+    "title": "What published tests show",
+    "section": "What happens as the input grows?",
+    "text": "What happens as the input grows?\n\norder_models &lt;- rr |&gt; group_by(model) |&gt; summarise(avg=mean(score)) |&gt; arrange(avg) |&gt; pull(model)\nggplot(rr,aes(factor(tested_tokens/1000),factor(model,levels=order_models),fill=score)) +\n  geom_tile(colour='white') + geom_text(aes(label=sprintf('%.0f',score)),size=2.8) +\n  scale_fill_gradient(low='#f9eadc',high='#469d9b',limits=c(0,100)) +\n  labs(x='Test length (thousands of tokens)',y=NULL,fill='Score',\n       title='Published RULER scores across context lengths',\n       subtitle='Scores from older models; this is not a ranking of current tools')\n\n\n\n\n\n\n\n\nSome tests use more text than a model claims to support. The first chart keeps those scores. The comparisons below use lengths within each claimed limit. Stars in the source mark scores from outside teams. Our data file keeps that flag. We leave missing scores blank. We keep the source labels 4K–128K; these are length labels, not exact counts from each model’s tokenizer."
+  },
+  {
+    "objectID": "evidence.html#compare-each-model-at-two-lengths",
+    "href": "evidence.html#compare-each-model-at-two-lengths",
+    "title": "What published tests show",
+    "section": "Compare each model at two lengths",
+    "text": "Compare each model at two lengths\n\nggplot(drops,aes(reorder(model,drop),drop)) +\n  geom_col(fill='#39769c',width=.7) + coord_flip() +\n  labs(x=NULL,y='Score at 4K minus score at 128K (points)',\n       title='Scores can fall as the input grows',\n       subtitle='Published scores; each model claims to support at least 128K')\n\n\n\n\n\n\n\n\nWe compare 34 models with scores at both lengths and a claimed limit of at least 128K. The median drop is 18.1 points. The median is the middle value when we sort the drops. These are older model tests. They do not predict how current tools will score.\nWe also fit a regression with model fixed effects. This lets each model have its own starting score. Within the claimed limits, the fit links each doubling of length to a -4.33 point score change. This is a pattern in the table, not proof that length caused the change. We lack scores for each trial, so we report no trial-level standard errors or p-values.\n\nruler_fit &lt;- lm(score ~ log2(tested_tokens / 4000) + factor(model),\n                data = subset(rr, !beyond_claim))\ncoef(ruler_fit)[2]\n\nlog2(tested_tokens/4000) \n               -4.334504 \n\n\n\nselected &lt;- c('Gemini-1.5-pro','GPT-4-1106-preview','Qwen3-14B (14B)','Llama3.1 (70B)')\nggplot(filter(rr,model %in% selected),aes(tested_tokens/1000,score,colour=model)) +\n  geom_line(linewidth=1) + geom_point(size=2) +\n  scale_x_log10(breaks=c(4,8,16,32,64,128)) +\n  labs(x='Test length (thousands of tokens, log scale)',y='Published RULER score',colour=NULL,\n       title='Four older models show different score drops')\n\n\n\n\n\n\n\n\nThese four models show different score patterns. We did not choose them as the top four. The first chart shows the full set."
+  },
+  {
+    "objectID": "evidence.html#what-other-studies-add",
+    "href": "evidence.html#what-other-studies-add",
+    "title": "What published tests show",
+    "section": "What other studies add",
+    "text": "What other studies add\n\n\n\nStudy\nWhat it tests\nWhat it does not show\n\n\n\n\nLost in the Middle\nWhere key facts sit in a long input\nOne score pattern for all current models\n\n\nRULER\nFinding, tracing, and combining facts as text grows\nGains at work or context transfer between tools\n\n\nLongMemEval\nUpdates, time, links across chats, and when to decline an answer\nDemand from a broad sample of users\n\n\nLoCoMo\nLong chats with labeled test questions\nA new, independent source for each question\n\n\nRAG versus long context\nScores and costs for two ways to supply context\nThat search beats full history on every task\n\n\nVerbatim chunks versus extracted artifacts\nA preprint on keeping source text intact\nThat all forms of structured memory work less well\n\n\nLongMemEval-V2\nAn early test of memory from agent tasks\nProven gains in day-to-day use\n\n\nEvalMem\nA preprint on faults in storage, search, and answer writing\nThat one stage causes most faults in all systems"
+  },
+  {
+    "objectID": "evidence.html#what-this-means-for-our-tool",
+    "href": "evidence.html#what-this-means-for-our-tool",
+    "title": "What published tests show",
+    "section": "What this means for our tool",
+    "text": "What this means for our tool\nKeep the source text with the facts drawn from it. Track updates and which project each fact belongs to. Test both the search step and the final answer. Compare the tool with simple search and a full chat history. Measure the costs before claiming the tool pays for itself.\nPublished score table · Paired differences · Source versions"
+  },
+  {
+    "objectID": "methods.html",
+    "href": "methods.html",
+    "title": "Methods and sources",
+    "section": "",
+    "text": "Part of the study\nWhat we have\nWhat it can show\n\n\n\n\nPublic chat data\nCounts from LoCoMo and cleaned LongMemEval-S\nWhat these files contain\n\n\nOur search test\nThree methods and four session limits\nHow much marked source text each method finds\n\n\nPublished model tests\nRULER scores\nScore patterns in older model tests\n\n\nModel price data\n304 listings; 283 paid text model versions\nPrices and limits at one point in time\n\n\nCost examples\nFormulas with inputs you can change\nWhen a tool could pay for itself under those inputs\n\n\nSurvey answers\nNone yet\nNo survey finding yet"
+  },
+  {
+    "objectID": "methods.html#what-each-part-can-show",
+    "href": "methods.html#what-each-part-can-show",
+    "title": "Methods and sources",
+    "section": "",
+    "text": "Part of the study\nWhat we have\nWhat it can show\n\n\n\n\nPublic chat data\nCounts from LoCoMo and cleaned LongMemEval-S\nWhat these files contain\n\n\nOur search test\nThree methods and four session limits\nHow much marked source text each method finds\n\n\nPublished model tests\nRULER scores\nScore patterns in older model tests\n\n\nModel price data\n304 listings; 283 paid text model versions\nPrices and limits at one point in time\n\n\nCost examples\nFormulas with inputs you can change\nWhen a tool could pay for itself under those inputs\n\n\nSurvey answers\nNone yet\nNo survey finding yet"
+  },
+  {
+    "objectID": "methods.html#run-the-study",
+    "href": "methods.html#run-the-study",
+    "title": "Methods and sources",
+    "section": "Run the study",
+    "text": "Run the study\nOpen AI-Economy.Rproj in RStudio. From the project directory:\npython3 scripts/fetch_benchmarks.py\npython3 scripts/evaluate_retrieval.py\nRscript R/context_analysis.R\npython3 scripts/audit_results.py\nquarto render\nquarto preview\nTo rebuild the model price data, run scripts/prepare_data.py, then R/analyze.R. Install these R packages: jsonlite, dplyr, ggplot2, scales, knitr, and rmarkdown. The Python code needs no extra packages. You need no model API key or paid calls. The project ZIP leaves out the large LongMemEval raw file. The download script fetches the saved source version. It checks a SHA-256 hash, a file fingerprint, to confirm the file matches.\nEach graph has the R code that made it above it. context_setup.R loads the data and sets the style. context_figures.R holds the graph code. We also save the R version and package details."
+  },
+  {
+    "objectID": "methods.html#how-the-search-test-works",
+    "href": "methods.html#how-the-search-test-works",
+    "title": "Methods and sources",
+    "section": "How the search test works",
+    "text": "How the search test works\nWe treat a whole chat session as one document. It includes the date, roles, and text. For LoCoMo, we map each labeled source turn to its session. For LongMemEval, we use the source-session IDs in the release. Each search uses the given question. It cannot see the answer, source labels, source summaries, or has_answer flags.\nBM25 splits text into lowercase words and numbers. It removes a fixed list of common words and does not shorten words to their stems. Its settings are k1 = 1.5 and b = 0.75. Tied scores keep the order of the source sessions, from oldest to newest. The Recent method reverses that order. Random uses a seed from the question ID and dataset name, hashed with SHA-256. The same inputs give the same shuffle. We keep up to 1, 3, 5, or 10 sessions, capped by how many exist. The random score comes from one shuffle per question. It is not the mean of all possible shuffles.\nWe leave no-answer and adversarial questions out of recall scoring. We also leave out questions whose source labels are missing or do not match. We keep all of them in the data counts. Recall needs a known set of source sessions to find. This choice means we do not test whether an AI knows when to decline an answer. We skip images. Finding a whole source session also does not prove an AI will use the right line.\nFull test settings · Questions left out · Data counts"
+  },
+  {
+    "objectID": "methods.html#how-to-read-the-statistics",
+    "href": "methods.html#how-to-read-the-statistics",
+    "title": "Methods and sources",
+    "section": "How to read the statistics",
+    "text": "How to read the statistics\nOur main comparison is BM25 minus Recent at a five-session limit. We compare scores on the same questions. We set this plan before we looked at the scores. We did not register it with an outside service. Other limits, task groups, and source positions help us explore the results. We report the size of each gap. We do not run a long list of tests and pick those with small p-values.\nLoCoMo questions share ten chat histories. For the bootstrap, we draw whole histories with replacement. This keeps linked questions together. With just ten histories, the range gives a limited view of how the result may vary. LongMemEval histories also share source text. We show its fixed test-set gap without a confidence interval that assumes each question is independent. Neither set is a random sample of real users.\nMessages, tokens, scores, and repeated tests do not count distinct users. RULER gives combined scores, not the trial-level data we would need to estimate sampling error. The model fixed effects describe score patterns. They do not prove effects on jobs, pay, or work output."
+  },
+  {
+    "objectID": "methods.html#how-we-check-the-data",
+    "href": "methods.html#how-we-check-the-data",
+    "title": "Methods and sources",
+    "section": "How we check the data",
+    "text": "How we check the data\nWe record the exact Git or Hugging Face version of each raw file. We also record its SHA-256 hash. We leave missing scores blank. The source file list gives file names, sizes, download times, and links. We log questions left out of scoring. We do not give them zero recall when their labels are missing.\nWe found 13 LongMemEval histories with one repeated session ID each. Each pair has the same message text. None is a marked source session. We keep these repeats so the test sees the file as released. A repeat is not a new source session. We report total appearances and distinct IDs as separate counts. We do not turn one snapshot into a made-up history."
+  },
+  {
+    "objectID": "methods.html#monthly-data-a-next-step",
+    "href": "methods.html#monthly-data-a-next-step",
+    "title": "Methods and sources",
+    "section": "Monthly data: a next step",
+    "text": "Monthly data: a next step\nWe have not collected monthly data from AI firms. A future study could track prices, context limits, and scores on a fixed test set. A list of model launch dates would not supply monthly test scores. We would also need to keep tests of new model versions apart from repeat tests of the same version."
+  },
+  {
+    "objectID": "methods.html#design-examples-we-studied",
+    "href": "methods.html#design-examples-we-studied",
+    "title": "Methods and sources",
+    "section": "Design examples we studied",
+    "text": "Design examples we studied\nOur World in Data’s AI pages pair charts with clear source notes. Stanford HELM uses a range of tasks and measures. LongMemEval’s research page links the data to the questions it tests. We used these ideas to shape the site. We do not claim their charts or findings as our work."
+  },
+  {
+    "objectID": "methods.html#what-we-still-need-to-test",
+    "href": "methods.html#what-we-still-need-to-test",
+    "title": "Methods and sources",
+    "section": "What we still need to test",
+    "text": "What we still need to test\nThis study tests the search step. It does not test syncing across tools, vector search, summaries, conflicting facts, or final answers. Next, we should use fixed model versions on the same tasks. We should match context budgets and compare with full-history input. Graders should not know which method produced each answer. We should measure all costs. We have not run those tests yet."
+  },
+  {
+    "objectID": "methods.html#survey-protocol",
+    "href": "methods.html#survey-protocol",
+    "title": "Methods and sources",
+    "section": "How we will use survey answers",
+    "text": "How we will use survey answers\nThe survey asks one main question: how often do recent AI users repeat context? Count recent users who answer “Yes” to question 4. Divide that count by recent users who answer “Yes” or “No” to that question. Report both counts with the percent. Leave missing, unsure, and conflicting answers out of that base count, and report them apart. Time spent and tool choice add context. They are not extra tests of the main claim.\nA first survey of 30–60 people could help us test the form. It would not speak for all workers. A Wilson interval gives a range for a share under a model of independent responses. It does not fix bias in who joins the survey, duplicate answers, or errors in recall. Do not claim a margin of error for all workers.\n\n# Run only after real responses are collected and screened.\n# x = recent users who re-entered context; n = recent users with a Yes/No answer.\nwilson &lt;- function(x, n, confidence = 0.95) {\n  stopifnot(n &gt; 0, x &gt;= 0, x &lt;= n, x == floor(x), n == floor(n))\n  z &lt;- qnorm(1 - (1 - confidence) / 2)\n  p &lt;- x / n\n  center &lt;- (p + z^2 / (2*n)) / (1 + z^2/n)\n  half &lt;- z * sqrt(p*(1-p)/n + z^2/(4*n^2)) / (1 + z^2/n)\n  c(proportion=p, lower=center-half, upper=center+half)\n}\n\n\nSet up the survey\nDownload the Google Forms script. Paste it into a new Google Apps Script project and run createPulseForm. The log shows the edit and response links. The script makes a six-question form and a response sheet. It routes people who do not consent to the end. We have not run it in your account. Check who can view and answer the form before you share it."
+  }
+]

@@ -1,0 +1,50 @@
+[
+  {
+    "company": "OpenAI",
+    "listings": 102
+  },
+  {
+    "company": "Alibaba",
+    "listings": 54
+  },
+  {
+    "company": "Alphabet / Google",
+    "listings": 41
+  },
+  {
+    "company": "Anthropic",
+    "listings": 29
+  },
+  {
+    "company": "Mistral AI",
+    "listings": 25
+  },
+  {
+    "company": "DeepSeek",
+    "listings": 15
+  },
+  {
+    "company": "NVIDIA",
+    "listings": 10
+  },
+  {
+    "company": "Meta",
+    "listings": 8
+  },
+  {
+    "company": "xAI",
+    "listings": 8
+  },
+  {
+    "company": "Amazon",
+    "listings": 5
+  },
+  {
+    "company": "Perplexity",
+    "listings": 5
+  },
+  {
+    "company": "Microsoft",
+    "listings": 2
+  }
+]

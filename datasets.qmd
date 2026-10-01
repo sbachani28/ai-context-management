@@ -1,0 +1,68 @@
+---
+title: "The data behind the study"
+---
+
+```{r}
+#| include: false
+source('R/context_setup.R')
+```
+
+<span class="tag">Public data / Our counts</span>
+
+We use the full LoCoMo file and the cleaned LongMemEval-S release. We saved the source version for each and counted the records. A benchmark is a shared set of tasks used to test a method. [LoCoMo source](https://github.com/snap-research/locomo) · [LongMemEval source](https://huggingface.co/datasets/xiaowu0162/longmemeval-cleaned).
+
+## What the counts mean
+
+```{r}
+#| echo: false
+knitr::kable(counts |> select(dataset,questions,eligible,histories,session_appearances,unique_session_ids,turn_appearances),
+ col.names=c('Dataset','Questions','Eligible','Histories','Session appearances','Distinct session IDs','Turn appearances'),format.args=list(big.mark=','))
+```
+
+**Questions, chat sessions, messages, and test runs are different counts.** LoCoMo has ten chat histories that many questions share. LongMemEval gives each question a history, but some histories reuse the same sessions. A repeated session is not a new source. These files mix chats made for tests with other shared text. They do not form a sample of our users or of all workers.
+
+## What do the questions test?
+
+```{r task-mix}
+#| echo: true
+#| code-fold: false
+#| fig-alt: "Number of questions by task in LoCoMo and LongMemEval-S."
+```
+
+We leave questions with no answer out of the recall scores. This includes the adversarial tests, which ask about facts the history cannot supply. We keep them in the data counts. We also leave out questions with missing source labels or labels we cannot match. The download lists each reason. A later test should check whether an AI knows when to say it does not know.
+
+## How long are the chat histories?
+
+```{r history-load}
+#| echo: true
+#| code-fold: false
+#| fig-alt: "Share of chat histories at or below each word count in both datasets."
+```
+
+We count words split by spaces, including names, roles, and dates. Words are not the same as tokens, the text units an AI model reads. In this chart, LoCoMo adds one record per chat history. LongMemEval adds one per question history.
+
+## Where are the key facts?
+
+```{r evidence-position}
+#| echo: true
+#| code-fold: false
+#| fig-alt: "Where the first marked source session sits in each history we scored."
+```
+
+We place each session at the midpoint of its slot in the history. We then divide that position by the number of sessions. The scale runs from the start of the history to the end. A method that keeps the latest sessions can miss older facts. This chart shows where facts sit in the data. It does not show where an AI pays attention.
+
+## How many sessions does a question need?
+
+```{r evidence-burden}
+#| echo: true
+#| code-fold: false
+#| fig-alt: "Share of scored questions that need one or more source sessions."
+```
+
+Some questions need facts from more than one session. We show the mean share of marked sessions each method finds. We also show how often it finds them all. Other sessions may hold the same facts without a label. Our scores use the labels the source gives us.
+
+## Sources and downloads
+
+[Question list](data/processed/question_inventory.json) · [Chat history list](data/processed/history_inventory.json) · [Questions left out of scoring](data/processed/retrieval_exclusions.json) · [Source versions and file checks](data/processed/benchmark_sources.json)
+
+LoCoMo uses the [CC BY-NC 4.0 license](data/processed/LOCOMO_LICENSE.txt). This study is for research, not commercial use. Check those terms before using the data in a product. LongMemEval lists the MIT license. Check the terms of its upstream sources too. We keep the raw chat files in the source project. This site shares counts and scores, not the raw chats.

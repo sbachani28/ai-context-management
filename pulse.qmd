@@ -1,0 +1,80 @@
+---
+title: "AI context — User survey"
+toc: false
+page-layout: full
+format:
+  html:
+    css:
+      - assets/styles.css
+      - assets/survey.css
+---
+
+```{=html}
+<div class="survey-shell">
+  <header class="survey-intro">
+    <p class="survey-kicker">Context Management / User survey</p>
+    <h1>Your use of AI context</h1>
+    <p class="survey-lead">Tell us when you have had to give an AI tool the same details more than once.</p>
+    <div class="survey-meta"><span>About 1 minute</span><span>6 questions</span><span>Adults 18+</span></div>
+  </header>
+
+  <div class="survey-layout">
+    <aside class="survey-aside" aria-label="About this survey">
+      <h2>A small part of a larger study</h2>
+      <p>We study how people keep and move context between AI chats. Your answers will help us learn when people have to repeat details.</p>
+      <dl class="survey-facts">
+        <div><dt>Time period</dt><dd>Think about the last 7 days.</dd></div>
+        <div><dt>Your privacy</dt><dd>We do not ask for your name, email, or employer.</dd></div>
+        <div><dt>Your choice</dt><dd>You choose whether to take part. You can leave at any time.</dd></div>
+      </dl>
+      <a class="survey-method-link" href="methods.html#survey-protocol">Read how we will use the answers <span aria-hidden="true">↗</span></a>
+    </aside>
+
+    <div class="survey-panel">
+      <div class="survey-panel-heading"><h2>Your experience</h2><span>Last 7 days</span></div>
+      <form id="pulse" class="research-survey">
+        <fieldset class="survey-question consent-question">
+          <legend><span class="question-number">01</span> Taking part</legend>
+          <p class="question-hint">You choose whether to take part. We do not ask for your name, email, or employer.</p>
+          <label class="consent-choice"><input type="checkbox" name="consent" required><span>I am 18 or older and agree to take part.</span></label>
+        </fieldset>
+
+        <fieldset class="survey-question">
+          <legend><span class="question-number">02</span> Where do you use AI most?</legend>
+          <select name="setting" required aria-label="Main setting"><option value="" disabled selected>Select a setting</option><option>Paid work</option><option>Education or training</option><option>Personal use</option><option>I do not use AI</option><option>Prefer not to say</option></select>
+        </fieldset>
+
+        <fieldset class="survey-question">
+          <legend><span class="question-number">03</span> Have you used a generative AI tool in the last 7 days?</legend>
+          <div class="answer-grid"><label class="answer-choice"><input type="radio" name="recent_use" value="Yes" required><span>Yes</span></label><label class="answer-choice"><input type="radio" name="recent_use" value="No"><span>No</span></label><label class="answer-choice"><input type="radio" name="recent_use" value="Unsure"><span>Unsure</span></label></div>
+        </fieldset>
+
+        <fieldset class="survey-question">
+          <legend><span class="question-number">04</span> Did you repeat information you had already given an AI tool?</legend>
+          <p class="question-hint" id="context-hint">Think about the last 7 days. Include project details or instructions you gave again, in the same tool or a new one.</p>
+          <div class="answer-grid" aria-describedby="context-hint"><label class="answer-choice"><input type="radio" name="reentered" value="Yes" required><span>Yes</span></label><label class="answer-choice"><input type="radio" name="reentered" value="No"><span>No</span></label><label class="answer-choice"><input type="radio" name="reentered" value="Unsure"><span>Unsure</span></label><label class="answer-choice answer-wide"><input type="radio" name="reentered" value="Not applicable"><span>I did not use AI</span></label></div>
+        </fieldset>
+
+        <fieldset class="survey-question">
+          <legend><span class="question-number">05</span> How much time did you spend giving those details again? <span class="optional-label">Optional</span></legend>
+          <p class="question-hint" id="minutes-hint">Give your best estimate for the last 7 days. Enter 0 for none. Leave it blank if you are unsure or did not use AI.</p>
+          <div class="minutes-field"><input type="number" name="minutes" min="0" max="10080" step="1" placeholder="e.g. 15" aria-label="Minutes spent re-entering information" aria-describedby="minutes-hint"><span aria-hidden="true">minutes</span></div>
+        </fieldset>
+
+        <fieldset class="survey-question">
+          <legend><span class="question-number">06</span> Which AI tool did you use most? <span class="optional-label">Optional</span></legend>
+          <select name="tool" aria-label="Most used tool"><option value="">Select a tool, or leave unanswered</option><option>ChatGPT</option><option>Claude</option><option>Gemini</option><option>Microsoft Copilot</option><option>GitHub Copilot</option><option>Grok</option><option>DeepSeek</option><option>Perplexity</option><option>Other</option></select>
+        </fieldset>
+
+        <div class="survey-actions">
+          <p class="survey-save-note"><strong>Local preview</strong> This saves a file to your device. It does not send your answers to the research team.</p>
+          <button class="survey-submit" type="submit">Save response <span aria-hidden="true">↓</span></button>
+          <p id="pulse-status" role="status" aria-live="polite"></p>
+        </div>
+      </form>
+    </div>
+  </div>
+  <footer class="survey-page-note">Student research · We have not collected survey answers yet.</footer>
+</div>
+<script src="assets/pulse.js"></script>
+```

@@ -1,0 +1,74 @@
+[
+  {
+    "company": "OpenAI",
+    "products": "ChatGPT",
+    "openrouter_model_namespace": "openai",
+    "cohort": "core"
+  },
+  {
+    "company": "Alphabet / Google",
+    "products": "Gemini",
+    "openrouter_model_namespace": "google",
+    "cohort": "core"
+  },
+  {
+    "company": "Microsoft",
+    "products": "Microsoft Copilot; GitHub Copilot",
+    "openrouter_model_namespace": "microsoft",
+    "cohort": "core"
+  },
+  {
+    "company": "Anthropic",
+    "products": "Claude",
+    "openrouter_model_namespace": "anthropic",
+    "cohort": "core"
+  },
+  {
+    "company": "Meta",
+    "products": "Meta AI; Llama",
+    "openrouter_model_namespace": "meta-llama",
+    "cohort": "core"
+  },
+  {
+    "company": "xAI",
+    "products": "Grok",
+    "openrouter_model_namespace": "x-ai",
+    "cohort": "core"
+  },
+  {
+    "company": "Perplexity",
+    "products": "Perplexity",
+    "openrouter_model_namespace": "perplexity",
+    "cohort": "core"
+  },
+  {
+    "company": "DeepSeek",
+    "products": "DeepSeek",
+    "openrouter_model_namespace": "deepseek",
+    "cohort": "core"
+  },
+  {
+    "company": "Mistral AI",
+    "products": "Le Chat; Mistral",
+    "openrouter_model_namespace": "mistralai",
+    "cohort": "core"
+  },
+  {
+    "company": "Alibaba",
+    "products": "Qwen",
+    "openrouter_model_namespace": "qwen",
+    "cohort": "core"
+  },
+  {
+    "company": "Amazon",
+    "products": "Amazon Q; Nova",
+    "openrouter_model_namespace": "amazon",
+    "cohort": "core"
+  },
+  {
+    "company": "NVIDIA",
+    "products": "Nemotron / infrastructure extension",
+    "openrouter_model_namespace": "nvidia",
+    "cohort": "infrastructure_extension"
+  }
+]

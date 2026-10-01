@@ -1,0 +1,55 @@
+---
+title: "What does better context cost?"
+---
+
+```{r}
+#| include: false
+source('R/context_setup.R')
+```
+
+<span class="tag">Costs and value / Example inputs</span>
+
+We want to know the cost of doing a task well. Finding the right facts is one part of that cost. We have not measured gains in work output, what users would pay, or savings in a real firm.
+
+## What costs should we count?
+
+$$C_{\mathrm{task}}=C_{\mathrm{inference}}+C_{\mathrm{memory}}+C_{\mathrm{storage}}+wT_{\mathrm{active}}+C_{\mathrm{errors}}.$$
+
+A memory tool must extract, store, find, rank, and sum up text. Count the cost of each step. Spread setup costs across a stated number of uses. Track hands-on work time apart from time spent waiting for the model. Do not count the same fix as both time spent and an error cost. Cached text, which a system stores for reuse, may have a different price.
+
+## The cost of input text
+
+```{r input-cost-grid}
+#| echo: true
+#| code-fold: false
+#| fig-alt: "Color grid of example input costs at a range of context sizes and prices."
+```
+
+The chart uses example prices and token counts. It does not turn our word counts into billed tokens. A token is a unit of text that a model reads or writes. See the [price page](market.qmd) for the listed base prices in our sample.
+
+## How much time would it need to save?
+
+```{r economic-sensitivity}
+#| echo: true
+#| code-fold: false
+#| fig-alt: "Example monthly value after costs, based on task counts and assumed time saved."
+```
+
+We assume time is worth $30 per hour. We also assume a $20 monthly fee and $0.02 extra cost per task. These are example inputs, not measured market rates. We still need to measure time saved with real users and matched tasks.
+
+## Try your own inputs
+
+```{=html}
+<div class="controls"><label>Tasks / month<input id="econ-tasks" type="number" min="1" max="100000" value="100"></label><label>Work minutes saved / task<input id="econ-minutes" type="number" min="0" max="480" step="0.1" value="1"></label><label>Value of work time ($/hour)<input id="econ-wage" type="number" min="0" max="10000" value="30"></label><label>Fixed cost / month ($)<input id="econ-fixed" type="number" min="0" max="100000" value="20"></label><label>Extra AI cost / task ($)<input id="econ-variable" type="number" min="0" max="1000" step="0.01" value="0.02"></label></div>
+<div class="banner" id="econ-result" aria-live="polite"></div>
+```
+
+The tool values time saved, then subtracts fixed and per-task costs. It leaves out error costs. It assumes each saved minute has the value you set. That value may not turn into cash savings. Change the inputs to see when the result changes.
+
+## The cost of switching tools
+
+Moving to a new AI tool can take time. Users may need to bring their project notes and past decisions with them. A tool that lets them move this context could reduce that burden. Access rules, file formats, and upkeep could limit the gain. [OECD research on data portability](https://www.oecd.org/en/publications/the-impact-of-data-portability-on-user-empowerment-innovation-and-competition_319f420f-en.html) explores this wider issue. Our study has not measured the effect of our tool on switching costs.
+
+## How to test the business case
+
+First, choose what to compare the tool with. Check work quality before putting a price on time saved. Count setup and upkeep costs. Show where the tool fails as well as where it helps. In a later test, assign matched tasks to each workflow at random. Measure time spent on setup and fixes. Have graders score the work without knowing which tool produced it. A small survey can describe users’ views. It cannot prove that the tool saves money.

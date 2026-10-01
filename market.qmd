@@ -1,0 +1,140 @@
+---
+title: "AI model prices and context limits"
+description: "Compare listed model prices and context limits."
+---
+
+```{r}
+m <- jsonlite::fromJSON('data/processed/metrics.json')
+```
+
+<span class="tag">Our analysis · R + SQL · One point in time</span>
+
+We use **`r m$catalog_n` model listings from `r m$companies` developers**. OpenRouter lists the base price to route text to each model. We show dollars per million tokens. A token is a unit of text a model reads or writes. These prices do not show sales, usage, or chat subscription fees. [Source and price fields](https://openrouter.ai/docs/api/api-reference/models/get-models).
+
+## Which developers are in the data?
+
+```{r}
+#| label: developer-coverage
+#| echo: true
+#| code-fold: false
+#| fig-width: 9
+#| fig-height: 5.4
+#| fig-alt: "Horizontal bars showing the number of selected catalog listings for each developer."
+library(ggplot2)
+library(dplyr)
+
+theme_set(
+  theme_minimal(base_size = 12) +
+    theme(
+      panel.grid.minor = element_blank(),
+      plot.title = element_text(face = "bold", color = "#102824"),
+      plot.subtitle = element_text(color = "#53635f"),
+      axis.title = element_text(color = "#53635f"),
+      plot.background = element_rect(fill = "#fcfbf7", color = NA)
+    )
+)
+
+catalog <- jsonlite::fromJSON("data/processed/models.json")
+counts <- catalog |>
+  count(company, name = "listings") |>
+  arrange(desc(listings))
+
+ggplot(counts, aes(reorder(company, listings), listings)) +
+  geom_col(fill = "#286854", width = .67) +
+  coord_flip() +
+  labs(
+    x = NULL,
+    y = "Model listings",
+    title = "Some developers have more listings in this sample",
+    subtitle = "These counts do not show market share"
+  )
+```
+
+Some developers have more listings than others. Each listing gets one row in our price model. This gives firms with more listings more weight unless we change the fit. A share of listings is not a share of the AI market.
+
+## Compare model versions
+
+The table has **`r m$priced_text_n` paid model versions that produce text**. We removed `r m$aliases_removed` listings that repeat the same model settings. Some models can read images too. The cost uses the input and billed output tokens you enter. It leaves out extra fees, cached text rates, price tiers, tool calls, and reasoning tokens you have not counted. A star marks a listing with price overrides in the source. Treat the result as a base-cost example, not a quote.
+
+```{r}
+#| results: asis
+d <- jsonlite::fromJSON('data/processed/analysis_sample.json')
+cat('<script id="model-data" type="application/json">',jsonlite::toJSON(d,dataframe='rows',auto_unbox=TRUE,digits=8),'</script>',sep='')
+```
+
+```{=html}
+<div class="controls">
+<label>Developer<select id="company-filter"><option value="">All developers</option></select></label>
+<label>Find a model<input id="model-search" type="search" placeholder="Search model ID"></label>
+<label>Input tokens<input id="input-tokens" type="number" min="0" max="10000000" value="1000"></label>
+<label>Billed output tokens<input id="output-tokens" type="number" min="0" max="1000000" value="500"></label>
+</div>
+<p id="model-count" class="calc-result" aria-live="polite"></p>
+<div class="table-wrap"><table id="model-table"><thead><tr><th>Model</th><th>Developer</th><th>Context</th><th>Input $/M</th><th>Output $/M</th><th>Base cost</th></tr></thead><tbody id="model-rows"></tbody></table></div>
+```
+
+## How context size and price are linked
+
+To study prices, we fit a regression. It links context size to output price. It also accounts for who makes the model and whether it reads images. The equation is:
+
+$$\log(p_j)=\alpha+\beta\log(c_j)+\gamma_{developer(j)}+\delta\,image_j+\epsilon_j.$$
+
+The fit uses `r m$priced_text_n` model versions. The context coefficient is **`r round(m$context_coefficient,3)`**, and R² is **`r round(m$fit_r2,3)`**. R² measures the share of variation in log prices that the fit explains in this sample. At twice the context size, the fitted output price differs by about **`r round(m$doubling_context_association_pct,1)`%**. This holds the developer and image support fixed.
+
+This fit does **not** show cause and effect. It does not tell us how buyers would react to a price change. More context does not prove better quality. We lack matched scores over time, demand, and the cost of running each model. We also lack price changes driven by outside events. Model families and firms may share errors. We do not treat each listing as an independent sample for tests of significance.
+
+```{r}
+#| echo: true
+catalog <- jsonlite::fromJSON('data/processed/analysis_sample.json')
+fit <- lm(log(output_price) ~ log(context_tokens) + factor(company) + image_input,
+          data = catalog)
+coef(fit)["log(context_tokens)"]
+```
+
+```{r}
+#| label: context-price
+#| echo: true
+#| code-fold: false
+#| fig-width: 9
+#| fig-height: 5.4
+#| fig-alt: "Scatterplot of context length against advertised output price, both on logarithmic scales."
+library(ggplot2)
+library(dplyr)
+
+theme_set(
+  theme_minimal(base_size = 12) +
+    theme(
+      panel.grid.minor = element_blank(),
+      plot.title = element_text(face = "bold", color = "#102824"),
+      plot.subtitle = element_text(color = "#53635f"),
+      axis.title = element_text(color = "#53635f"),
+      plot.background = element_rect(fill = "#fcfbf7", color = NA)
+    )
+)
+
+catalog <- jsonlite::fromJSON("data/processed/analysis_sample.json")
+
+ggplot(catalog, aes(context_tokens, output_price, color = company)) +
+  geom_point(alpha = .65, size = 2) +
+  scale_x_log10() +
+  scale_y_log10() +
+  guides(color = "none") +
+  labs(
+    x = "Context window (tokens) · log scale",
+    y = "Output USD / million tokens · log scale",
+    title = "Context size is one of many model traits",
+    subtitle = "Each point is a model version; color shows the developer"
+  )
+```
+
+### What changes when we change the fit?
+
+| Price model | Context coefficient |
+|---|---:|
+| Context only | `r round(m$unadjusted_context_coef,3)` |
+| Developer controls + image-input support | `r round(m$context_coefficient,3)` |
+| Same controls, excluding OpenAI | `r round(m$no_openai_context_coef,3)` |
+
+The estimate changes when we change the fit or the sample. These checks do not remove bias from traits we have not measured. The paid sample has `r m$price_override_n` listings with price overrides. The fit uses base prices for all of them.
+
+[Download the price data (JSON)](data/processed/analysis_sample.json) · [Read the R code](R/analyze.R) · [Source details](data/processed/manifest.json)

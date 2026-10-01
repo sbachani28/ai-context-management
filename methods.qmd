@@ -1,0 +1,96 @@
+---
+title: "Methods and sources"
+---
+
+```{r}
+#| include: false
+source('R/context_setup.R')
+```
+
+## What each part can show
+
+| Part of the study | What we have | What it can show |
+|---|---|---|
+| Public chat data | Counts from LoCoMo and cleaned LongMemEval-S | What these files contain |
+| Our search test | Three methods and four session limits | How much marked source text each method finds |
+| Published model tests | RULER scores | Score patterns in older model tests |
+| Model price data | 304 listings; 283 paid text model versions | Prices and limits at one point in time |
+| Cost examples | Formulas with inputs you can change | When a tool could pay for itself under those inputs |
+| Survey answers | None yet | No survey finding yet |
+
+## Run the study
+
+Open `AI-Economy.Rproj` in RStudio. From the project directory:
+
+```{.bash}
+python3 scripts/fetch_benchmarks.py
+python3 scripts/evaluate_retrieval.py
+Rscript R/context_analysis.R
+python3 scripts/audit_results.py
+quarto render
+quarto preview
+```
+
+To rebuild the model price data, run `scripts/prepare_data.py`, then `R/analyze.R`. Install these R packages: `jsonlite`, `dplyr`, `ggplot2`, `scales`, `knitr`, and `rmarkdown`. The Python code needs no extra packages. You need no model API key or paid calls. The project ZIP leaves out the large LongMemEval raw file. The download script fetches the saved source version. It checks a SHA-256 hash, a file fingerprint, to confirm the file matches.
+
+Each graph has the R code that made it above it. [context_setup.R](R/context_setup.R) loads the data and sets the style. [context_figures.R](R/context_figures.R) holds the graph code. We also save the [R version and package details](data/processed/context_R_session.txt).
+
+## How the search test works
+
+We treat a whole chat session as one document. It includes the date, roles, and text. For LoCoMo, we map each labeled source turn to its session. For LongMemEval, we use the source-session IDs in the release. Each search uses the given question. It cannot see the answer, source labels, source summaries, or `has_answer` flags.
+
+BM25 splits text into lowercase words and numbers. It removes a fixed list of common words and does not shorten words to their stems. Its settings are k1 = 1.5 and b = 0.75. Tied scores keep the order of the source sessions, from oldest to newest. The Recent method reverses that order. Random uses a seed from the question ID and dataset name, hashed with SHA-256. The same inputs give the same shuffle. We keep up to 1, 3, 5, or 10 sessions, capped by how many exist. The random score comes from one shuffle per question. It is not the mean of all possible shuffles.
+
+We leave no-answer and adversarial questions out of recall scoring. We also leave out questions whose source labels are missing or do not match. We keep all of them in the data counts. Recall needs a known set of source sessions to find. This choice means we do not test whether an AI knows when to decline an answer. We skip images. Finding a whole source session also does not prove an AI will use the right line.
+
+[Full test settings](data/processed/experiment_manifest.json) · [Questions left out](data/processed/retrieval_exclusions.json) · [Data counts](data/processed/benchmark_counts.json)
+
+## How to read the statistics
+
+Our main comparison is BM25 minus Recent at a five-session limit. We compare scores on the same questions. We set this plan before we looked at the scores. We did not register it with an outside service. Other limits, task groups, and source positions help us explore the results. We report the size of each gap. We do not run a long list of tests and pick those with small p-values.
+
+LoCoMo questions share ten chat histories. For the bootstrap, we draw whole histories with replacement. This keeps linked questions together. With just ten histories, the range gives a limited view of how the result may vary. LongMemEval histories also share source text. We show its fixed test-set gap without a confidence interval that assumes each question is independent. Neither set is a random sample of real users.
+
+Messages, tokens, scores, and repeated tests do not count distinct users. RULER gives combined scores, not the trial-level data we would need to estimate sampling error. The model fixed effects describe score patterns. They do not prove effects on jobs, pay, or work output.
+
+## How we check the data
+
+We record the exact Git or Hugging Face version of each raw file. We also record its SHA-256 hash. We leave missing scores blank. The [source file list](data/processed/benchmark_sources.json) gives file names, sizes, download times, and links. We log questions left out of scoring. We do not give them zero recall when their labels are missing.
+
+We found 13 LongMemEval histories with one repeated session ID each. Each pair has the same message text. None is a marked source session. We keep these repeats so the test sees the file as released. A repeat is not a new source session. We report total appearances and distinct IDs as separate counts. We do not turn one snapshot into a made-up history.
+
+## Monthly data: a next step
+
+We have not collected monthly data from AI firms. A future study could track prices, context limits, and scores on a fixed test set. A list of model launch dates would not supply monthly test scores. We would also need to keep tests of new model versions apart from repeat tests of the same version.
+
+## Design examples we studied
+
+[Our World in Data's AI pages](https://ourworldindata.org/artificial-intelligence) pair charts with clear source notes. [Stanford HELM](https://crfm.stanford.edu/helm/) uses a range of tasks and measures. [LongMemEval's research page](https://xiaowu0162.github.io/long-mem-eval/) links the data to the questions it tests. We used these ideas to shape the site. We do not claim their charts or findings as our work.
+
+## What we still need to test
+
+This study tests the search step. It does not test syncing across tools, vector search, summaries, conflicting facts, or final answers. Next, we should use fixed model versions on the same tasks. We should match context budgets and compare with full-history input. Graders should not know which method produced each answer. We should measure all costs. We have not run those tests yet.
+
+
+## How we will use survey answers {#survey-protocol}
+
+The survey asks one main question: how often do recent AI users repeat context? Count recent users who answer “Yes” to question 4. Divide that count by recent users who answer “Yes” or “No” to that question. Report both counts with the percent. Leave missing, unsure, and conflicting answers out of that base count, and report them apart. Time spent and tool choice add context. They are not extra tests of the main claim.
+
+A first survey of 30–60 people could help us test the form. It would not speak for all workers. A Wilson interval gives a range for a share under a model of independent responses. It does not fix bias in who joins the survey, duplicate answers, or errors in recall. Do not claim a margin of error for all workers.
+
+```{r, echo=TRUE, eval=FALSE}
+# Run only after real responses are collected and screened.
+# x = recent users who re-entered context; n = recent users with a Yes/No answer.
+wilson <- function(x, n, confidence = 0.95) {
+  stopifnot(n > 0, x >= 0, x <= n, x == floor(x), n == floor(n))
+  z <- qnorm(1 - (1 - confidence) / 2)
+  p <- x / n
+  center <- (p + z^2 / (2*n)) / (1 + z^2/n)
+  half <- z * sqrt(p*(1-p)/n + z^2/(4*n^2)) / (1 + z^2/n)
+  c(proportion=p, lower=center-half, upper=center+half)
+}
+```
+
+### Set up the survey
+
+[Download the Google Forms script](scripts/create_pulse_form.gs). Paste it into a new Google Apps Script project and run `createPulseForm`. The log shows the edit and response links. The script makes a six-question form and a response sheet. It routes people who do not consent to the end. We have **not** run it in your account. Check who can view and answer the form before you share it.

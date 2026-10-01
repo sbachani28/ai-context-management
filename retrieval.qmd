@@ -1,0 +1,115 @@
+---
+title: "How we choose which context to keep"
+---
+
+```{r}
+#| include: false
+source('R/context_setup.R')
+```
+
+<span class="tag">Our test / Finding facts in past chats</span>
+
+We ran **`r format(cm$retrieval_evaluations,big.mark=',')` tests** on **`r format(cm$eligible_questions,big.mark=',')` questions with usable source labels**. Each test combines a question, a method, and a session limit. Each method sees the same question and chat history. We use the answer and source labels to score the chosen sessions, not to choose them. We made no calls to an AI model.
+
+## Three methods, four session limits
+
+| Method | How it chooses sessions | Why we include it |
+|---|---|---|
+| BM25 | Finds query words, gives more weight to rare words, and adjusts for session length | A simple keyword search |
+| Recent | Keeps the latest sessions first | A common way to trim a chat history |
+| Random | Shuffles the sessions with a fixed seed | A chance-based reference we can repeat |
+
+Each method can keep up to 1, 3, 5, or 10 sessions. Sessions vary in length. The same count can mean a different number of words, tokens, and dollars. We search text and skip images. See the [test settings](data/processed/experiment_manifest.json) for the full rules and the random seed.
+
+## Evidence recall
+
+```{r recall-curves}
+#| echo: true
+#| code-fold: false
+#| fig-alt: "Mean share of marked source sessions found by each method at each session limit."
+```
+
+Recall is the share of a question's marked source sessions that a method finds. A score of 100% means it found all of them. It does not mean an AI read those facts well or gave the right answer.
+
+## Finding all the facts
+
+```{r complete-evidence}
+#| echo: true
+#| code-fold: false
+#| fig-alt: "Share of questions for which each method finds all marked source sessions."
+```
+
+Finding some facts may not be enough. A task that spans several sessions may need them all. A tool should flag when it lacks part of the source text.
+
+## Scores by task
+
+```{r category-heatmap}
+#| echo: true
+#| code-fold: false
+#| fig-alt: "Color grid of recall scores by task and method at a five-session limit."
+#| fig-height: 6.4
+```
+
+Some task groups have more questions than others. Read the scores with their counts. [Download the scores and counts by task](data/processed/retrieval_categories.json).
+
+## Score gains and how much they vary
+
+```{r}
+#| echo: false
+knitr::kable(effects |> mutate(across(c(gain,bm25,recent,lower,upper),~round(100*.x,1))),
+ col.names=c('Dataset','Questions','Gain (pp)','BM25 (%)','Recent (%)','Lower (pp)','Upper (pp)'))
+```
+
+For LoCoMo, we draw from the **ten chat histories** 2,000 times, with replacement. Each draw keeps the questions from a history together. We then find the mean score gain, giving each question the same weight. The middle 95% of these gains forms a *cluster-bootstrap interval*. This shows how the gain varies when we change the mix of histories. Ten histories give a limited view of that range. We cannot treat it as a precise range for all users. LongMemEval reuses source text across histories. We show its score gain without an interval that assumes each question is independent.
+
+```{r}
+#| echo: true
+#| eval: false
+# Executed in R/context_analysis.R; paired differences are clustered by conversation.
+set.seed(20261001)
+x <- subset(clusters, dataset == 'LoCoMo')
+boot <- replicate(2000, {
+  sampled <- sample(seq_len(nrow(x)), replace = TRUE)
+  sum(x$total[sampled]) / sum(x$n[sampled])
+})
+quantile(boot, c(.025, .975))
+```
+
+```{r conversation-effects}
+#| echo: true
+#| code-fold: false
+#| fig-alt: "BM25 minus Recent recall for each of the ten LoCoMo chat histories."
+```
+
+## How much text do we need to keep?
+
+```{r context-efficiency}
+#| echo: true
+#| code-fold: false
+#| fig-alt: "Recall and the mean share of words kept, for each method and dataset."
+```
+
+Keeping less text can mean losing key facts. This chart compares the share of words kept with recall. It does not measure answer quality or cost in dollars. We choose whole sessions, and their lengths vary.
+
+## Does the place in the history matter?
+
+```{r position-performance}
+#| echo: true
+#| code-fold: false
+#| fig-alt: "Recall at a five-session limit, grouped by where the first marked source sits."
+```
+
+We check where the marked facts sit after each test. The search methods do not see these source labels.
+
+## Explore the scores
+
+```{r}
+#| results: asis
+#| echo: false
+cat('<script type="application/json" id="retrieval-data">',jsonlite::toJSON(curves,dataframe='rows',digits=8),'</script>',sep='')
+```
+
+<div class="controls"><label>Dataset<select id="retrieval-dataset"><option>LoCoMo</option><option>LongMemEval-S</option></select></label><label>Session limit<select id="retrieval-budget"><option>1</option><option>3</option><option selected>5</option><option>10</option></select></label></div>
+<div id="retrieval-summary" aria-live="polite"></div>
+
+[All test scores](data/processed/retrieval_runs.json) · [Python test code](scripts/evaluate_retrieval.py) · [R analysis code](R/context_analysis.R)

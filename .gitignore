@@ -1,0 +1,9 @@
+.quarto/
+.Rproj.user/
+.Rhistory
+.RData
+.DS_Store
+__pycache__/
+data/raw/longmemeval_s_cleaned.json
+/*_files/
+*.knit.md

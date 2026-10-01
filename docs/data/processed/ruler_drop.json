@@ -1,0 +1,206 @@
+[
+  {
+    "model": "Jamba-1.5-large (94B/398B)",
+    "score4": 96.7,
+    "score128": 95.1,
+    "drop": 1.6
+  },
+  {
+    "model": "Gemini-1.5-pro",
+    "score4": 96.7,
+    "score128": 94.4,
+    "drop": 2.3
+  },
+  {
+    "model": "Qwen2.5-14B-Instruct-1M (14B)",
+    "score4": 97.5,
+    "score128": 92.2,
+    "drop": 5.3
+  },
+  {
+    "model": "Qwen3-235B-A22B (235B)",
+    "score4": 97.7,
+    "score128": 90.6,
+    "drop": 7.1
+  },
+  {
+    "model": "Qwen3-14B (14B)",
+    "score4": 98,
+    "score128": 85.1,
+    "drop": 12.9
+  },
+  {
+    "model": "Jamba-1.5-mini (12B/52B)",
+    "score4": 95.6,
+    "score128": 90,
+    "drop": 5.6
+  },
+  {
+    "model": "Qwen3-32B (32B)",
+    "score4": 98.4,
+    "score128": 85.6,
+    "drop": 12.8
+  },
+  {
+    "model": "EXAONE-4.0-32B (32B)",
+    "score4": 96.3,
+    "score128": 88.2,
+    "drop": 8.1
+  },
+  {
+    "model": "Qwen2.5-7B-Instruct-1M (7B)",
+    "score4": 96.8,
+    "score128": 84.4,
+    "drop": 12.4
+  },
+  {
+    "model": "Qwen3-30B-A3B (30B)",
+    "score4": 96.5,
+    "score128": 79.2,
+    "drop": 17.3
+  },
+  {
+    "model": "GPT-4-1106-preview",
+    "score4": 96.6,
+    "score128": 81.2,
+    "drop": 15.4
+  },
+  {
+    "model": "Llama3.1 (70B)",
+    "score4": 96.5,
+    "score128": 66.6,
+    "drop": 29.9
+  },
+  {
+    "model": "Qwen3-8B (8B)",
+    "score4": 96.3,
+    "score128": 77.4,
+    "drop": 18.9
+  },
+  {
+    "model": "Mistral-Large-2411 (123B)",
+    "score4": 96.4,
+    "score128": 48.1,
+    "drop": 48.3
+  },
+  {
+    "model": "Command-R-plus-0824 (104B)",
+    "score4": 96,
+    "score128": 64.6,
+    "drop": 31.4
+  },
+  {
+    "model": "Qwen2 (72B)",
+    "score4": 96.9,
+    "score128": 53.7,
+    "drop": 43.2
+  },
+  {
+    "model": "Command-R-plus (104B)",
+    "score4": 95.6,
+    "score128": 63.1,
+    "drop": 32.5
+  },
+  {
+    "model": "Command-R-0824 (32B)",
+    "score4": 94.7,
+    "score128": 74.7,
+    "drop": 20
+  },
+  {
+    "model": "GLM4 (9B)",
+    "score4": 94.7,
+    "score128": 83.1,
+    "drop": 11.6
+  },
+  {
+    "model": "Llama3.1 (8B)",
+    "score4": 95.5,
+    "score128": 77,
+    "drop": 18.5
+  },
+  {
+    "model": "ProLong (8B)",
+    "score4": 94.5,
+    "score128": 81.6,
+    "drop": 12.9
+  },
+  {
+    "model": "Command-R (35B)",
+    "score4": 93.8,
+    "score128": 76,
+    "drop": 17.8
+  },
+  {
+    "model": "MegaBeam-Mistral (7B)",
+    "score4": 93.8,
+    "score128": 83.7,
+    "drop": 10.1
+  },
+  {
+    "model": "Mistral-Large-2407 (123B)",
+    "score4": 96.2,
+    "score128": 23.7,
+    "drop": 72.5
+  },
+  {
+    "model": "GradientAI/Llama3 (70B)",
+    "score4": 95.1,
+    "score128": 72.1,
+    "drop": 23
+  },
+  {
+    "model": "Yi (34B)",
+    "score4": 93.3,
+    "score128": 77.3,
+    "drop": 16
+  },
+  {
+    "model": "Qwen3-4B (4B)",
+    "score4": 95.1,
+    "score128": 66,
+    "drop": 29.1
+  },
+  {
+    "model": "Phi3-mini (3.8B)",
+    "score4": 92.2,
+    "score128": 66.7,
+    "drop": 25.5
+  },
+  {
+    "model": "Phi3-medium (14B)",
+    "score4": 93.3,
+    "score128": 46.1,
+    "drop": 47.2
+  },
+  {
+    "model": "GradientAI/Llama3 (8B)",
+    "score4": 92.8,
+    "score128": 69.5,
+    "drop": 23.3
+  },
+  {
+    "model": "InternLM2.5 (7B)",
+    "score4": 88.1,
+    "score128": 68.9,
+    "drop": 19.2
+  },
+  {
+    "model": "Mistral-Nemo",
+    "score4": 87.8,
+    "score128": 19,
+    "drop": 68.8
+  },
+  {
+    "model": "GLM3 (6B)",
+    "score4": 87.8,
+    "score128": 42,
+    "drop": 45.8
+  },
+  {
+    "model": "LWM (7B)",
+    "score4": 82.3,
+    "score128": 65,
+    "drop": 17.3
+  }
+]

@@ -1,0 +1,70 @@
+---
+title: "What published tests show"
+---
+
+```{r}
+#| include: false
+source('R/context_setup.R')
+```
+
+<span class="tag">Published scores / Our analysis</span>
+
+We use a saved version of the [RULER score table](https://github.com/hsiehjackson/RULER). It has **`r cm$ruler_score_cells` scores for `r cm$ruler_models` model versions**. Other researchers ran these tests. The table gives combined scores, not each trial or monthly results. It includes older models and scores from outside teams. Their test details can differ.
+
+## What happens as the input grows?
+
+```{r ruler-heatmap}
+#| echo: true
+#| code-fold: false
+#| fig-alt: "Heatmap of published RULER scores by model and input length."
+#| fig-height: 12
+```
+
+Some tests use more text than a model claims to support. The first chart keeps those scores. The comparisons below use lengths within each claimed limit. Stars in the source mark scores from outside teams. Our [data file](data/processed/ruler_scores.json) keeps that flag. We leave missing scores blank. We keep the source labels 4K–128K; these are length labels, not exact counts from each model’s tokenizer.
+
+## Compare each model at two lengths
+
+```{r ruler-degradation}
+#| echo: true
+#| code-fold: false
+#| fig-alt: "Drop in RULER scores from 4K to 128K for models with both scores and a claimed limit of at least 128K."
+#| fig-height: 9
+```
+
+We compare **`r cm$ruler_paired_models` models** with scores at both lengths and a claimed limit of at least 128K. The median drop is **`r round(cm$ruler_median_drop,1)` points**. The median is the middle value when we sort the drops. These are older model tests. They do not predict how current tools will score.
+
+We also fit a regression with *model fixed effects*. This lets each model have its own starting score. Within the claimed limits, the fit links each doubling of length to a **`r round(cm$ruler_within_claim_slope,2)` point score change**. This is a pattern in the table, not proof that length caused the change. We lack scores for each trial, so we report no trial-level standard errors or p-values.
+
+```{r}
+#| echo: true
+ruler_fit <- lm(score ~ log2(tested_tokens / 4000) + factor(model),
+                data = subset(rr, !beyond_claim))
+coef(ruler_fit)[2]
+```
+
+```{r ruler-curves}
+#| echo: true
+#| code-fold: false
+#| fig-alt: "RULER scores for four older models as the input grows."
+```
+
+These four models show different score patterns. We did not choose them as the top four. The first chart shows the full set.
+
+## What other studies add
+
+| Study | What it tests | What it does not show |
+|---|---|---|
+| [Lost in the Middle](https://arxiv.org/abs/2307.03172) | Where key facts sit in a long input | One score pattern for all current models |
+| [RULER](https://arxiv.org/abs/2404.06654) | Finding, tracing, and combining facts as text grows | Gains at work or context transfer between tools |
+| [LongMemEval](https://arxiv.org/abs/2410.10813) | Updates, time, links across chats, and when to decline an answer | Demand from a broad sample of users |
+| [LoCoMo](https://snap-research.github.io/locomo/) | Long chats with labeled test questions | A new, independent source for each question |
+| [RAG versus long context](https://aclanthology.org/2024.emnlp-industry.66/) | Scores and costs for two ways to supply context | That search beats full history on every task |
+| [Verbatim chunks versus extracted artifacts](https://arxiv.org/abs/2601.00821) | A preprint on keeping source text intact | That all forms of structured memory work less well |
+| [LongMemEval-V2](https://arxiv.org/abs/2605.12493) | An early test of memory from agent tasks | Proven gains in day-to-day use |
+| [EvalMem](https://arxiv.org/abs/2609.22231) | A preprint on faults in storage, search, and answer writing | That one stage causes most faults in all systems |
+
+## What this means for our tool
+
+Keep the source text with the facts drawn from it. Track updates and which project each fact belongs to. Test both the search step and the final answer. Compare the tool with simple search and a full chat history. Measure the costs before claiming the tool pays for itself.
+
+[Published score table](data/processed/ruler_scores.json) · [Paired differences](data/processed/ruler_drop.json) · [Source versions](data/processed/benchmark_sources.json)

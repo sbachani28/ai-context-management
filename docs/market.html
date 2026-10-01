@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="Compare listed model prices and context limits.">
+
+<title>AI model prices and context limits – Context Management</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-f306a07c4fb173bd38603ab43a511bce.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Context Management</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Overview</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./datasets.html"> 
+<span class="menu-text">Data</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./retrieval.html"> 
+<span class="menu-text">Experiment</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./market.html" aria-current="page"> 
+<span class="menu-text">Model prices</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./evidence.html"> 
+<span class="menu-text">Benchmarks</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./economics.html"> 
+<span class="menu-text">Economics</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./methods.html"> 
+<span class="menu-text">Methods</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./pulse.html"> 
+<span class="menu-text">Survey</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content column-page" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">AI model prices and context limits</h1>
+</div>
+
+<div>
+  <div class="description">
+    Compare listed model prices and context limits.
+  </div>
+</div>
+
+
+<div class="quarto-title-meta column-page">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p><span class="tag">Our analysis · R + SQL · One point in time</span></p>
+<p>We use <strong>304 model listings from 12 developers</strong>. OpenRouter lists the base price to route text to each model. We show dollars per million tokens. A token is a unit of text a model reads or writes. These prices do not show sales, usage, or chat subscription fees. <a href="https://openrouter.ai/docs/api/api-reference/models/get-models">Source and price fields</a>.</p>
+<section id="which-developers-are-in-the-data" class="level2">
+<h2 class="anchored" data-anchor-id="which-developers-are-in-the-data">Which developers are in the data?</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_set</span>(</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">12</span>) <span class="sc">+</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>      <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>      <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">color =</span> <span class="st">"#102824"</span>),</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>      <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"#53635f"</span>),</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>      <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"#53635f"</span>),</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>      <span class="at">plot.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"#fcfbf7"</span>, <span class="at">color =</span> <span class="cn">NA</span>)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>catalog <span class="ot">&lt;-</span> jsonlite<span class="sc">::</span><span class="fu">fromJSON</span>(<span class="st">"data/processed/models.json"</span>)</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>counts <span class="ot">&lt;-</span> catalog <span class="sc">|&gt;</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(company, <span class="at">name =</span> <span class="st">"listings"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(listings))</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(counts, <span class="fu">aes</span>(<span class="fu">reorder</span>(company, listings), listings)) <span class="sc">+</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">"#286854"</span>, <span class="at">width =</span> .<span class="dv">67</span>) <span class="sc">+</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="cn">NULL</span>,</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Model listings"</span>,</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Some developers have more listings in this sample"</span>,</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"These counts do not show market share"</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="market_files/figure-html/developer-coverage-1.png" class="img-fluid figure-img" alt="Horizontal bars showing the number of selected catalog listings for each developer."></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Some developers have more listings than others. Each listing gets one row in our price model. This gives firms with more listings more weight unless we change the fit. A share of listings is not a share of the AI market.</p>
+</section>
+<section id="compare-model-versions" class="level2">
+<h2 class="anchored" data-anchor-id="compare-model-versions">Compare model versions</h2>
+<p>The table has <strong>283 paid model versions that produce text</strong>. We removed 0 listings that repeat the same model settings. Some models can read images too. The cost uses the input and billed output tokens you enter. It leaves out extra fees, cached text rates, price tiers, tool calls, and reasoning tokens you have not counted. A star marks a listing with price overrides in the source. Treat the result as a base-cost example, not a quote.</p>
+<script id="model-data" type="application/json">[{"model_id":"qwen/qwen-2.5-72b-instruct","canonical_slug":"qwen/qwen-2.5-72b-instruct","company":"Alibaba","context_tokens":32768,"input_price":0.36,"output_price":0.4,"image_input":0,"text_output":1,"has_price_overrides":0},{"model_id":"qwen/qwen-2.5-7b-instruct","canonical_slug":"qwen/qwen-2.5-7b-instruct","company":"Alibaba","context_tokens":32768,"input_price":0.1,"output_price":0.2,"image_input":0,"text_output":1,"has_price_overrides":0},{"model_id":"qwen/qwen-2.5-coder-32b-instruct","canonical_slug":"qwen/qwen-2.5-coder-32b-instruct","company":"Alibaba","context_tokens":32768,"input_price":0.66,"output_price":1,"image_input":0,"text_output":1,"has_price_overrides":0},{"model_id":"qwen/qwen-plus","canonical_slug":"qwen/qwen-plus-2025-01-25","company":"Alibaba","context_tokens":1000000,"input_price":0.26,"output_price":0.78,"image_input":0,"text_output":1,"has_price_overrides":1},{"model_id":"qwen/qwen-plus-2025-07-28","canonical_slug":"qwen/qwen-plus-2025-07-28","company":"Alibaba","context_tokens":1000000,"input_price":0.26,"output_price":0.78,"image_input":0,"text_output":1,"has_price_overrides":1},{"model_id":"qwen/qwen2.5-vl-72b-instruct","canonical_slug":"qwen/qwen2.5-vl-72b-instruct","company":"Alibaba","context_tokens":128000,"input_price":0.8,"output_price":1,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"qwen/qwen3-14b","canonical_slug":"qwen/qwen3-14b-04-28","company":"Alibaba","context_tokens":131072,"input_price":0.12,"output_price":0.24,"image_input":0,"text_output":1,"has_price_overrides":0},{"model_id":"qwen/qwen3-235b-a22b","canonical_slug":"qwen/qwen3-235b-a22b-04-28","company":"Alibaba","context_tokens":131072,"input_price":0.455,"output_price":1.82,"image_input":0,"text_output":1,"has_price_overrides":0},{"model_id":"qwen/qwen3-235b-a22b-2507","canonical_slug":"qwen/qwen3-235b-a22b-07-25","company":"Alibaba","context_tokens":262144,"input_price":0.0875,"output_price":0.35,"image_input":0,"text_output":1,"has_price_overrides":0},{"model_id":"qwen/qwen3-235b-a22b-thinking-2507","canonical_slug":"qwen/qwen3-235b-a22b-thinking-2507","company":"Alibaba","context_tokens":131072,"input_price":0.23,"output_price":2.3,"image_input":0,"text_output":1,"has_price_overrides":0},{"model_id":"qwen/qwen3-30b-a3b","canonical_slug":"qwen/qwen3-30b-a3b-04-28","company":"Alibaba","context_tokens":131072,"input_price":0.12,"output_price":0.5,"image_input":0,"text_output":1,"has_price_overrides":0},{"model_id":"qwen/qwen3-30b-a3b-instruct-2507","canonical_slug":"qwen/qwen3-30b-a3b-instruct-2507","company":"Alibaba","context_tokens":262144,"input_price":0.04815,"output_price":0.19305,"image_input":0,"text_output":1,"has_price_overrides":0},{"model_id":"qwen/qwen3-30b-a3b-thinking-2507","canonical_slug":"qwen/qwen3-30b-a3b-thinking-2507","company":"Alibaba","context_tokens":81920,"input_price":0.2,"output_price":2.4,"image_input":0,"text_output":1,"has_price_overrides":0},{"model_id":"qwen/qwen3-32b","canonical_slug":"qwen/qwen3-32b-04-28","company":"Alibaba","context_tokens":131072,"input_price":0.08,"output_price":0.28,"image_input":0,"text_output":1,"has_price_overrides":0},{"model_id":"qwen/qwen3-8b","canonical_slug":"qwen/qwen3-8b-04-28","company":"Alibaba","context_tokens":131072,"input_price":0.117,"output_price":0.455,"image_input":0,"text_output":1,"has_price_overrides":0},{"model_id":"qwen/qwen3-coder","canonical_slug":"qwen/qwen3-coder-480b-a35b-07-25","company":"Alibaba","context_tokens":262144,"input_price":0.3,"output_price":1,"image_input":0,"text_output":1,"has_price_overrides":0},{"model_id":"qwen/qwen3-coder-30b-a3b-instruct","canonical_slug":"qwen/qwen3-coder-30b-a3b-instruct","company":"Alibaba","context_tokens":262144,"input_price":0.07,"output_price":0.28,"image_input":0,"text_output":1,"has_price_overrides":0},{"model_id":"qwen/qwen3-coder-flash","canonical_slug":"qwen/qwen3-coder-flash","company":"Alibaba","context_tokens":1000000,"input_price":0.195,"output_price":0.975,"image_input":0,"text_output":1,"has_price_overrides":1},{"model_id":"qwen/qwen3-coder-next","canonical_slug":"qwen/qwen3-coder-next-2025-02-03","company":"Alibaba","context_tokens":262144,"input_price":0.12,"output_price":0.8,"image_input":0,"text_output":1,"has_price_overrides":0},{"model_id":"qwen/qwen3-coder-plus","canonical_slug":"qwen/qwen3-coder-plus","company":"Alibaba","context_tokens":1000000,"input_price":0.65,"output_price":3.25,"image_input":0,"text_output":1,"has_price_overrides":1},{"model_id":"qwen/qwen3-max","canonical_slug":"qwen/qwen3-max","company":"Alibaba","context_tokens":262144,"input_price":0.78,"output_price":3.9,"image_input":0,"text_output":1,"has_price_overrides":1},{"model_id":"qwen/qwen3-max-thinking","canonical_slug":"qwen/qwen3-max-thinking-20260123","company":"Alibaba","context_tokens":262144,"input_price":0.78,"output_price":3.9,"image_input":0,"text_output":1,"has_price_overrides":1},{"model_id":"qwen/qwen3-next-80b-a3b-instruct","canonical_slug":"qwen/qwen3-next-80b-a3b-instruct-2509","company":"Alibaba","context_tokens":262144,"input_price":0.1,"output_price":1.1,"image_input":0,"text_output":1,"has_price_overrides":0},{"model_id":"qwen/qwen3-next-80b-a3b-thinking","canonical_slug":"qwen/qwen3-next-80b-a3b-thinking-2509","company":"Alibaba","context_tokens":262144,"input_price":0.15,"output_price":1.2,"image_input":0,"text_output":1,"has_price_overrides":0},{"model_id":"qwen/qwen3-vl-235b-a22b-instruct","canonical_slug":"qwen/qwen3-vl-235b-a22b-instruct","company":"Alibaba","context_tokens":262144,"input_price":0.21,"output_price":1.9,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"qwen/qwen3-vl-235b-a22b-thinking","canonical_slug":"qwen/qwen3-vl-235b-a22b-thinking","company":"Alibaba","context_tokens":131072,"input_price":0.4,"output_price":4,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"qwen/qwen3-vl-30b-a3b-instruct","canonical_slug":"qwen/qwen3-vl-30b-a3b-instruct","company":"Alibaba","context_tokens":262144,"input_price":0.15,"output_price":0.6,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"qwen/qwen3-vl-30b-a3b-thinking","canonical_slug":"qwen/qwen3-vl-30b-a3b-thinking","company":"Alibaba","context_tokens":262144,"input_price":0.2,"output_price":2.4,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"qwen/qwen3-vl-32b-instruct","canonical_slug":"qwen/qwen3-vl-32b-instruct","company":"Alibaba","context_tokens":131072,"input_price":0.104,"output_price":0.416,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"qwen/qwen3-vl-8b-instruct","canonical_slug":"qwen/qwen3-vl-8b-instruct","company":"Alibaba","context_tokens":262144,"input_price":0.117,"output_price":0.455,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"qwen/qwen3-vl-8b-thinking","canonical_slug":"qwen/qwen3-vl-8b-thinking","company":"Alibaba","context_tokens":131072,"input_price":0.18,"output_price":2.1,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"qwen/qwen3.5-122b-a10b","canonical_slug":"qwen/qwen3.5-122b-a10b-20260224","company":"Alibaba","context_tokens":262144,"input_price":0.26,"output_price":2.08,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"qwen/qwen3.5-27b","canonical_slug":"qwen/qwen3.5-27b-20260224","company":"Alibaba","context_tokens":262144,"input_price":0.195,"output_price":1.56,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"qwen/qwen3.5-35b-a3b","canonical_slug":"qwen/qwen3.5-35b-a3b-20260224","company":"Alibaba","context_tokens":262144,"input_price":0.1625,"output_price":1.3,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"qwen/qwen3.5-397b-a17b","canonical_slug":"qwen/qwen3.5-397b-a17b-20260216","company":"Alibaba","context_tokens":262144,"input_price":0.55,"output_price":3.5,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"qwen/qwen3.5-9b","canonical_slug":"qwen/qwen3.5-9b-20260310","company":"Alibaba","context_tokens":262144,"input_price":0.1,"output_price":0.15,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"qwen/qwen3.5-flash-02-23","canonical_slug":"qwen/qwen3.5-flash-20260224","company":"Alibaba","context_tokens":1000000,"input_price":0.065,"output_price":0.26,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"qwen/qwen3.5-plus-02-15","canonical_slug":"qwen/qwen3.5-plus-20260216","company":"Alibaba","context_tokens":1000000,"input_price":0.26,"output_price":1.56,"image_input":1,"text_output":1,"has_price_overrides":1},{"model_id":"qwen/qwen3.5-plus-20260420","canonical_slug":"qwen/qwen3.5-plus-20260420","company":"Alibaba","context_tokens":1000000,"input_price":0.3,"output_price":1.8,"image_input":1,"text_output":1,"has_price_overrides":1},{"model_id":"qwen/qwen3.6-27b","canonical_slug":"qwen/qwen3.6-27b-20260422","company":"Alibaba","context_tokens":262144,"input_price":0.32,"output_price":3.2,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"qwen/qwen3.6-35b-a3b","canonical_slug":"qwen/qwen3.6-35b-a3b-20260415","company":"Alibaba","context_tokens":262144,"input_price":0.15,"output_price":1,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"qwen/qwen3.6-flash","canonical_slug":"qwen/qwen3.6-flash","company":"Alibaba","context_tokens":1000000,"input_price":0.1875,"output_price":1.125,"image_input":1,"text_output":1,"has_price_overrides":1},{"model_id":"qwen/qwen3.6-max-preview","canonical_slug":"qwen/qwen3.6-max-preview-20260420","company":"Alibaba","context_tokens":262144,"input_price":1.027,"output_price":6.162,"image_input":0,"text_output":1,"has_price_overrides":1},{"model_id":"qwen/qwen3.6-plus","canonical_slug":"qwen/qwen3.6-plus-04-02","company":"Alibaba","context_tokens":1000000,"input_price":0.325,"output_price":1.95,"image_input":1,"text_output":1,"has_price_overrides":1},{"model_id":"qwen/qwen3.7-flash","canonical_slug":"qwen/qwen3.7-flash-20260727","company":"Alibaba","context_tokens":1000000,"input_price":0.03,"output_price":0.13,"image_input":1,"text_output":1,"has_price_overrides":1},{"model_id":"qwen/qwen3.7-max","canonical_slug":"qwen/qwen3.7-max-20260520","company":"Alibaba","context_tokens":1000000,"input_price":1.475,"output_price":4.425,"image_input":0,"text_output":1,"has_price_overrides":0},{"model_id":"qwen/qwen3.7-plus","canonical_slug":"qwen/qwen3.7-plus-20260602","company":"Alibaba","context_tokens":1000000,"input_price":0.32,"output_price":1.28,"image_input":1,"text_output":1,"has_price_overrides":1},{"model_id":"qwen/qwen3.8-2.4t-a95b","canonical_slug":"qwen/qwen3.8-2.4t-a95b-20260812","company":"Alibaba","context_tokens":1048576,"input_price":2,"output_price":6,"image_input":0,"text_output":1,"has_price_overrides":0},{"model_id":"qwen/qwen3.8-27b","canonical_slug":"qwen/qwen3.8-27b-20260814","company":"Alibaba","context_tokens":1000000,"input_price":0.42,"output_price":3,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"qwen/qwen3.8-flash","canonical_slug":"qwen/qwen3.8-flash-20260826","company":"Alibaba","context_tokens":1000000,"input_price":0.15,"output_price":0.47,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"qwen/qwen3.8-max-0902","canonical_slug":"qwen/qwen3.8-max-20260902","company":"Alibaba","context_tokens":1000000,"input_price":2,"output_price":6,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"qwen/qwen3.8-max-prime","canonical_slug":"qwen/qwen3.8-max-prime-20260923","company":"Alibaba","context_tokens":1000000,"input_price":4,"output_price":12,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"qwen/qwen3.8-omni-flash","canonical_slug":"qwen/qwen3.8-omni-flash-20260918","company":"Alibaba","context_tokens":1000000,"input_price":0.15,"output_price":0.47,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"google/gemini-2.5-flash","canonical_slug":"google/gemini-2.5-flash","company":"Alphabet / Google","context_tokens":1048576,"input_price":0.3,"output_price":2.5,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"google/gemini-2.5-flash-lite","canonical_slug":"google/gemini-2.5-flash-lite","company":"Alphabet / Google","context_tokens":1048576,"input_price":0.1,"output_price":0.4,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"google/gemini-2.5-flash-lite:batch","canonical_slug":"google/gemini-2.5-flash-lite","company":"Alphabet / Google","context_tokens":1048576,"input_price":0.05,"output_price":0.2,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"google/gemini-2.5-flash:batch","canonical_slug":"google/gemini-2.5-flash","company":"Alphabet / Google","context_tokens":1048576,"input_price":0.15,"output_price":1.25,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"google/gemini-2.5-pro","canonical_slug":"google/gemini-2.5-pro","company":"Alphabet / Google","context_tokens":1048576,"input_price":1.25,"output_price":10,"image_input":1,"text_output":1,"has_price_overrides":1},{"model_id":"google/gemini-2.5-pro-preview","canonical_slug":"google/gemini-2.5-pro-preview-06-05","company":"Alphabet / Google","context_tokens":1048576,"input_price":1.25,"output_price":10,"image_input":1,"text_output":1,"has_price_overrides":1},{"model_id":"google/gemini-2.5-pro:batch","canonical_slug":"google/gemini-2.5-pro","company":"Alphabet / Google","context_tokens":1048576,"input_price":0.625,"output_price":5,"image_input":1,"text_output":1,"has_price_overrides":1},{"model_id":"google/gemini-3-flash-preview","canonical_slug":"google/gemini-3-flash-preview-20251217","company":"Alphabet / Google","context_tokens":1048576,"input_price":0.5,"output_price":3,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"google/gemini-3-flash-preview:batch","canonical_slug":"google/gemini-3-flash-preview-20251217","company":"Alphabet / Google","context_tokens":1048576,"input_price":0.25,"output_price":1.5,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"google/gemini-3.1-flash-lite","canonical_slug":"google/gemini-3.1-flash-lite-20260507","company":"Alphabet / Google","context_tokens":1048576,"input_price":0.25,"output_price":1.5,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"google/gemini-3.1-flash-lite-preview","canonical_slug":"google/gemini-3.1-flash-lite-preview-20260303","company":"Alphabet / Google","context_tokens":1048576,"input_price":0.25,"output_price":1.5,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"google/gemini-3.1-flash-lite:batch","canonical_slug":"google/gemini-3.1-flash-lite-20260507","company":"Alphabet / Google","context_tokens":1048576,"input_price":0.125,"output_price":0.75,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"google/gemini-3.1-pro-preview","canonical_slug":"google/gemini-3.1-pro-preview-20260219","company":"Alphabet / Google","context_tokens":1048576,"input_price":2,"output_price":12,"image_input":1,"text_output":1,"has_price_overrides":1},{"model_id":"google/gemini-3.1-pro-preview-customtools","canonical_slug":"google/gemini-3.1-pro-preview-customtools-20260219","company":"Alphabet / Google","context_tokens":1048576,"input_price":2,"output_price":12,"image_input":1,"text_output":1,"has_price_overrides":1},{"model_id":"google/gemini-3.1-pro-preview:batch","canonical_slug":"google/gemini-3.1-pro-preview-20260219","company":"Alphabet / Google","context_tokens":1048576,"input_price":1,"output_price":6,"image_input":1,"text_output":1,"has_price_overrides":1},{"model_id":"google/gemini-3.5-flash","canonical_slug":"google/gemini-3.5-flash-20260519","company":"Alphabet / Google","context_tokens":1048576,"input_price":1.5,"output_price":9,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"google/gemini-3.5-flash-lite","canonical_slug":"google/gemini-3.5-flash-lite-20260721","company":"Alphabet / Google","context_tokens":1048576,"input_price":0.3,"output_price":2.5,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"google/gemini-3.5-flash-lite:batch","canonical_slug":"google/gemini-3.5-flash-lite-20260721","company":"Alphabet / Google","context_tokens":1048576,"input_price":0.15,"output_price":1.25,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"google/gemini-3.5-flash:batch","canonical_slug":"google/gemini-3.5-flash-20260519","company":"Alphabet / Google","context_tokens":1048576,"input_price":0.75,"output_price":4.5,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"google/gemini-3.6-flash","canonical_slug":"google/gemini-3.6-flash-20260721","company":"Alphabet / Google","context_tokens":1048576,"input_price":0.75,"output_price":3.75,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"google/gemini-3.6-flash:batch","canonical_slug":"google/gemini-3.6-flash-20260721","company":"Alphabet / Google","context_tokens":1048576,"input_price":0.375,"output_price":1.875,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"google/gemini-3.7-flash","canonical_slug":"google/gemini-3.7-flash-20260813","company":"Alphabet / Google","context_tokens":1048576,"input_price":0.75,"output_price":3.75,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"google/gemini-3.7-flash:batch","canonical_slug":"google/gemini-3.7-flash-20260813","company":"Alphabet / Google","context_tokens":1048576,"input_price":0.375,"output_price":1.875,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"google/gemini-3.8-flash","canonical_slug":"google/gemini-3.8-flash-20260902","company":"Alphabet / Google","context_tokens":1048576,"input_price":0.75,"output_price":3.75,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"google/gemini-3.8-flash:batch","canonical_slug":"google/gemini-3.8-flash-20260902","company":"Alphabet / Google","context_tokens":1048576,"input_price":0.375,"output_price":1.875,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"google/gemma-2-27b-it","canonical_slug":"google/gemma-2-27b-it","company":"Alphabet / Google","context_tokens":8192,"input_price":0.65,"output_price":0.65,"image_input":0,"text_output":1,"has_price_overrides":0},{"model_id":"google/gemma-3-12b-it","canonical_slug":"google/gemma-3-12b-it","company":"Alphabet / Google","context_tokens":131072,"input_price":0.05,"output_price":0.15,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"google/gemma-3-27b-it","canonical_slug":"google/gemma-3-27b-it","company":"Alphabet / Google","context_tokens":131072,"input_price":0.08,"output_price":0.45,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"google/gemma-3-4b-it","canonical_slug":"google/gemma-3-4b-it","company":"Alphabet / Google","context_tokens":131072,"input_price":0.05,"output_price":0.1,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"google/gemma-4-26b-a4b-it","canonical_slug":"google/gemma-4-26b-a4b-it-20260403","company":"Alphabet / Google","context_tokens":262144,"input_price":0.0765,"output_price":0.255,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"google/gemma-4-31b-it","canonical_slug":"google/gemma-4-31b-it-20260402","company":"Alphabet / Google","context_tokens":262144,"input_price":0.09,"output_price":0.34,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"amazon/nova-2-lite-v1","canonical_slug":"amazon/nova-2-lite-v1","company":"Amazon","context_tokens":1000000,"input_price":0.3,"output_price":2.5,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"amazon/nova-lite-v1","canonical_slug":"amazon/nova-lite-v1","company":"Amazon","context_tokens":300000,"input_price":0.06,"output_price":0.24,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"amazon/nova-micro-v1","canonical_slug":"amazon/nova-micro-v1","company":"Amazon","context_tokens":128000,"input_price":0.035,"output_price":0.14,"image_input":0,"text_output":1,"has_price_overrides":0},{"model_id":"amazon/nova-premier-v1","canonical_slug":"amazon/nova-premier-v1","company":"Amazon","context_tokens":1000000,"input_price":2.5,"output_price":12.5,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"amazon/nova-pro-v1","canonical_slug":"amazon/nova-pro-v1","company":"Amazon","context_tokens":300000,"input_price":0.8,"output_price":3.2,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"anthropic/claude-fable-5","canonical_slug":"anthropic/claude-5-fable-20260609","company":"Anthropic","context_tokens":1000000,"input_price":10,"output_price":50,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"anthropic/claude-fable-5.1","canonical_slug":"anthropic/claude-fable-5.1-20260831","company":"Anthropic","context_tokens":1000000,"input_price":10,"output_price":50,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"anthropic/claude-fable-5.1:batch","canonical_slug":"anthropic/claude-fable-5.1-20260831","company":"Anthropic","context_tokens":1000000,"input_price":5,"output_price":25,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"anthropic/claude-fable-5:batch","canonical_slug":"anthropic/claude-5-fable-20260609","company":"Anthropic","context_tokens":1000000,"input_price":5,"output_price":25,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"anthropic/claude-haiku-4.5","canonical_slug":"anthropic/claude-4.5-haiku-20251001","company":"Anthropic","context_tokens":200000,"input_price":1,"output_price":5,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"anthropic/claude-haiku-4.5:batch","canonical_slug":"anthropic/claude-4.5-haiku-20251001","company":"Anthropic","context_tokens":200000,"input_price":0.5,"output_price":2.5,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"anthropic/claude-opus-4.1","canonical_slug":"anthropic/claude-4.1-opus-20250805","company":"Anthropic","context_tokens":200000,"input_price":15,"output_price":75,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"anthropic/claude-opus-4.1:batch","canonical_slug":"anthropic/claude-4.1-opus-20250805","company":"Anthropic","context_tokens":200000,"input_price":7.5,"output_price":37.5,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"anthropic/claude-opus-4.5","canonical_slug":"anthropic/claude-4.5-opus-20251124","company":"Anthropic","context_tokens":200000,"input_price":5,"output_price":25,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"anthropic/claude-opus-4.5:batch","canonical_slug":"anthropic/claude-4.5-opus-20251124","company":"Anthropic","context_tokens":200000,"input_price":2.5,"output_price":12.5,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"anthropic/claude-opus-4.6","canonical_slug":"anthropic/claude-4.6-opus-20260205","company":"Anthropic","context_tokens":1000000,"input_price":5,"output_price":25,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"anthropic/claude-opus-4.6:batch","canonical_slug":"anthropic/claude-4.6-opus-20260205","company":"Anthropic","context_tokens":1000000,"input_price":2.5,"output_price":12.5,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"anthropic/claude-opus-4.7","canonical_slug":"anthropic/claude-4.7-opus-20260416","company":"Anthropic","context_tokens":1000000,"input_price":5,"output_price":25,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"anthropic/claude-opus-4.7:batch","canonical_slug":"anthropic/claude-4.7-opus-20260416","company":"Anthropic","context_tokens":1000000,"input_price":2.5,"output_price":12.5,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"anthropic/claude-opus-4.8","canonical_slug":"anthropic/claude-4.8-opus-20260528","company":"Anthropic","context_tokens":1000000,"input_price":5,"output_price":25,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"anthropic/claude-opus-4.8:batch","canonical_slug":"anthropic/claude-4.8-opus-20260528","company":"Anthropic","context_tokens":1000000,"input_price":2.5,"output_price":12.5,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"anthropic/claude-opus-5","canonical_slug":"anthropic/claude-opus-5-20260723","company":"Anthropic","context_tokens":1000000,"input_price":5,"output_price":25,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"anthropic/claude-opus-5.5","canonical_slug":"anthropic/claude-opus-5.5-20260921","company":"Anthropic","context_tokens":1000000,"input_price":4,"output_price":20,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"anthropic/claude-opus-5.5:batch","canonical_slug":"anthropic/claude-opus-5.5-20260921","company":"Anthropic","context_tokens":1000000,"input_price":2,"output_price":10,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"anthropic/claude-opus-5:batch","canonical_slug":"anthropic/claude-opus-5-20260723","company":"Anthropic","context_tokens":1000000,"input_price":2.5,"output_price":12.5,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"anthropic/claude-sonnet-4","canonical_slug":"anthropic/claude-4-sonnet-20250522","company":"Anthropic","context_tokens":200000,"input_price":3,"output_price":15,"image_input":1,"text_output":1,"has_price_overrides":1},{"model_id":"anthropic/claude-sonnet-4.5","canonical_slug":"anthropic/claude-4.5-sonnet-20250929","company":"Anthropic","context_tokens":1000000,"input_price":3,"output_price":15,"image_input":1,"text_output":1,"has_price_overrides":1},{"model_id":"anthropic/claude-sonnet-4.5:batch","canonical_slug":"anthropic/claude-4.5-sonnet-20250929","company":"Anthropic","context_tokens":1000000,"input_price":1.5,"output_price":7.5,"image_input":1,"text_output":1,"has_price_overrides":1},{"model_id":"anthropic/claude-sonnet-4.6","canonical_slug":"anthropic/claude-4.6-sonnet-20260217","company":"Anthropic","context_tokens":1000000,"input_price":3,"output_price":15,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"anthropic/claude-sonnet-4.6:batch","canonical_slug":"anthropic/claude-4.6-sonnet-20260217","company":"Anthropic","context_tokens":1000000,"input_price":1.5,"output_price":7.5,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"anthropic/claude-sonnet-5","canonical_slug":"anthropic/claude-sonnet-5-20260630","company":"Anthropic","context_tokens":1000000,"input_price":2,"output_price":10,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"anthropic/claude-sonnet-5.5","canonical_slug":"anthropic/claude-sonnet-5.5-20260928","company":"Anthropic","context_tokens":1000000,"input_price":2,"output_price":10,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"anthropic/claude-sonnet-5.5:batch","canonical_slug":"anthropic/claude-sonnet-5.5-20260928","company":"Anthropic","context_tokens":1000000,"input_price":1,"output_price":5,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"anthropic/claude-sonnet-5:batch","canonical_slug":"anthropic/claude-sonnet-5-20260630","company":"Anthropic","context_tokens":1000000,"input_price":1,"output_price":5,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"deepseek/deepseek-chat","canonical_slug":"deepseek/deepseek-chat-v3","company":"DeepSeek","context_tokens":163840,"input_price":0.2574,"output_price":1.0287,"image_input":0,"text_output":1,"has_price_overrides":0},{"model_id":"deepseek/deepseek-chat-v3-0324","canonical_slug":"deepseek/deepseek-chat-v3-0324","company":"DeepSeek","context_tokens":163840,"input_price":0.29,"output_price":1.14,"image_input":0,"text_output":1,"has_price_overrides":0},{"model_id":"deepseek/deepseek-chat-v3.1","canonical_slug":"deepseek/deepseek-chat-v3.1","company":"DeepSeek","context_tokens":163840,"input_price":0.25,"output_price":0.95,"image_input":0,"text_output":1,"has_price_overrides":0},{"model_id":"deepseek/deepseek-r1","canonical_slug":"deepseek/deepseek-r1","company":"DeepSeek","context_tokens":64000,"input_price":0.7,"output_price":2.5,"image_input":0,"text_output":1,"has_price_overrides":0},{"model_id":"deepseek/deepseek-r1-0528","canonical_slug":"deepseek/deepseek-r1-0528","company":"DeepSeek","context_tokens":163840,"input_price":0.5,"output_price":2.15,"image_input":0,"text_output":1,"has_price_overrides":0},{"model_id":"deepseek/deepseek-v3.1-terminus","canonical_slug":"deepseek/deepseek-v3.1-terminus","company":"DeepSeek","context_tokens":163840,"input_price":0.3,"output_price":1,"image_input":0,"text_output":1,"has_price_overrides":0},{"model_id":"deepseek/deepseek-v3.2","canonical_slug":"deepseek/deepseek-v3.2-20251201","company":"DeepSeek","context_tokens":163840,"input_price":0.28,"output_price":0.42,"image_input":0,"text_output":1,"has_price_overrides":0},{"model_id":"deepseek/deepseek-v3.2-exp","canonical_slug":"deepseek/deepseek-v3.2-exp","company":"DeepSeek","context_tokens":163840,"input_price":0.27,"output_price":0.41,"image_input":0,"text_output":1,"has_price_overrides":0},{"model_id":"deepseek/deepseek-v4-flash","canonical_slug":"deepseek/deepseek-v4-flash-20260423","company":"DeepSeek","context_tokens":1048576,"input_price":0.042,"output_price":0.084,"image_input":0,"text_output":1,"has_price_overrides":0},{"model_id":"deepseek/deepseek-v4-flash-0731","canonical_slug":"deepseek/deepseek-v4-flash-20260731","company":"DeepSeek","context_tokens":1048576,"input_price":0.0171,"output_price":1.28,"image_input":0,"text_output":1,"has_price_overrides":0},{"model_id":"deepseek/deepseek-v4-flash-vision-exp","canonical_slug":"deepseek/deepseek-v4-flash-vision-exp-20260821","company":"DeepSeek","context_tokens":1048576,"input_price":0.2156,"output_price":0.6468,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"deepseek/deepseek-v4-pro","canonical_slug":"deepseek/deepseek-v4-pro-20260423","company":"DeepSeek","context_tokens":1048576,"input_price":0.255084,"output_price":0.510168,"image_input":0,"text_output":1,"has_price_overrides":0},{"model_id":"deepseek/deepseek-v4-pro-0813","canonical_slug":"deepseek/deepseek-v4-pro-20260813","company":"DeepSeek","context_tokens":1048576,"input_price":0.66,"output_price":1.98,"image_input":0,"text_output":1,"has_price_overrides":1},{"model_id":"deepseek/deepseek-v4.1-flash","canonical_slug":"deepseek/deepseek-v4.1-flash-20260910","company":"DeepSeek","context_tokens":1048576,"input_price":0.015543,"output_price":0.396,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"deepseek/deepseek-v4.1-flash:batch","canonical_slug":"deepseek/deepseek-v4.1-flash-20260910","company":"DeepSeek","context_tokens":1048576,"input_price":0.112,"output_price":0.336,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"meta-llama/llama-3.1-70b-instruct","canonical_slug":"meta-llama/llama-3.1-70b-instruct","company":"Meta","context_tokens":131072,"input_price":0.4,"output_price":0.4,"image_input":0,"text_output":1,"has_price_overrides":0},{"model_id":"meta-llama/llama-3.1-8b-instruct","canonical_slug":"meta-llama/llama-3.1-8b-instruct","company":"Meta","context_tokens":131072,"input_price":0.05,"output_price":0.08,"image_input":0,"text_output":1,"has_price_overrides":0},{"model_id":"meta-llama/llama-3.2-1b-instruct","canonical_slug":"meta-llama/llama-3.2-1b-instruct","company":"Meta","context_tokens":60000,"input_price":0.027,"output_price":0.201,"image_input":0,"text_output":1,"has_price_overrides":0},{"model_id":"meta-llama/llama-3.2-3b-instruct","canonical_slug":"meta-llama/llama-3.2-3b-instruct","company":"Meta","context_tokens":131072,"input_price":0.05,"output_price":0.33,"image_input":0,"text_output":1,"has_price_overrides":0},{"model_id":"meta-llama/llama-3.3-70b-instruct","canonical_slug":"meta-llama/llama-3.3-70b-instruct","company":"Meta","context_tokens":131072,"input_price":0.1,"output_price":0.32,"image_input":0,"text_output":1,"has_price_overrides":0},{"model_id":"meta-llama/llama-4-maverick","canonical_slug":"meta-llama/llama-4-maverick-17b-128e-instruct","company":"Meta","context_tokens":1048576,"input_price":0.1875,"output_price":0.6525,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"meta-llama/llama-4-scout","canonical_slug":"meta-llama/llama-4-scout-17b-16e-instruct","company":"Meta","context_tokens":1310720,"input_price":0.1,"output_price":0.3,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"meta-llama/llama-guard-4-12b","canonical_slug":"meta-llama/llama-guard-4-12b","company":"Meta","context_tokens":163840,"input_price":0.18,"output_price":0.18,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"microsoft/phi-4","canonical_slug":"microsoft/phi-4","company":"Microsoft","context_tokens":16384,"input_price":0.07,"output_price":0.14,"image_input":0,"text_output":1,"has_price_overrides":0},{"model_id":"microsoft/wizardlm-2-8x22b","canonical_slug":"microsoft/wizardlm-2-8x22b","company":"Microsoft","context_tokens":65535,"input_price":0.62,"output_price":0.62,"image_input":0,"text_output":1,"has_price_overrides":0},{"model_id":"mistralai/codestral-2508","canonical_slug":"mistralai/codestral-2508","company":"Mistral AI","context_tokens":256000,"input_price":0.3,"output_price":0.9,"image_input":0,"text_output":1,"has_price_overrides":0},{"model_id":"mistralai/codestral-2508:batch","canonical_slug":"mistralai/codestral-2508","company":"Mistral AI","context_tokens":256000,"input_price":0.15,"output_price":0.45,"image_input":0,"text_output":1,"has_price_overrides":0},{"model_id":"mistralai/devstral-2512","canonical_slug":"mistralai/devstral-2512","company":"Mistral AI","context_tokens":262144,"input_price":0.4,"output_price":2,"image_input":0,"text_output":1,"has_price_overrides":0},{"model_id":"mistralai/ministral-14b-2512","canonical_slug":"mistralai/ministral-14b-2512","company":"Mistral AI","context_tokens":262144,"input_price":0.2,"output_price":0.2,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"mistralai/ministral-3b-2512","canonical_slug":"mistralai/ministral-3b-2512","company":"Mistral AI","context_tokens":131072,"input_price":0.1,"output_price":0.1,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"mistralai/ministral-8b-2512","canonical_slug":"mistralai/ministral-8b-2512","company":"Mistral AI","context_tokens":262144,"input_price":0.15,"output_price":0.15,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"mistralai/ministral-8b-2512:batch","canonical_slug":"mistralai/ministral-8b-2512","company":"Mistral AI","context_tokens":262144,"input_price":0.075,"output_price":0.075,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"mistralai/mistral-large","canonical_slug":"mistralai/mistral-large","company":"Mistral AI","context_tokens":128000,"input_price":2,"output_price":6,"image_input":0,"text_output":1,"has_price_overrides":0},{"model_id":"mistralai/mistral-large-2407","canonical_slug":"mistralai/mistral-large-2407","company":"Mistral AI","context_tokens":131072,"input_price":2,"output_price":6,"image_input":0,"text_output":1,"has_price_overrides":0},{"model_id":"mistralai/mistral-large-2512","canonical_slug":"mistralai/mistral-large-2512","company":"Mistral AI","context_tokens":262144,"input_price":0.5,"output_price":1.5,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"mistralai/mistral-large-2512:batch","canonical_slug":"mistralai/mistral-large-2512","company":"Mistral AI","context_tokens":262144,"input_price":0.25,"output_price":0.75,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"mistralai/mistral-medium-3","canonical_slug":"mistralai/mistral-medium-3","company":"Mistral AI","context_tokens":131072,"input_price":0.4,"output_price":2,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"mistralai/mistral-medium-3-5","canonical_slug":"mistralai/mistral-medium-3.5-20260430","company":"Mistral AI","context_tokens":262144,"input_price":1.5,"output_price":7.5,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"mistralai/mistral-medium-3-5:batch","canonical_slug":"mistralai/mistral-medium-3.5-20260430","company":"Mistral AI","context_tokens":262144,"input_price":0.75,"output_price":3.75,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"mistralai/mistral-medium-3.1","canonical_slug":"mistralai/mistral-medium-3.1","company":"Mistral AI","context_tokens":131072,"input_price":0.4,"output_price":2,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"mistralai/mistral-medium-3.1:batch","canonical_slug":"mistralai/mistral-medium-3.1","company":"Mistral AI","context_tokens":131072,"input_price":0.2,"output_price":1,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"mistralai/mistral-nemo","canonical_slug":"mistralai/mistral-nemo","company":"Mistral AI","context_tokens":131072,"input_price":0.019,"output_price":0.03,"image_input":0,"text_output":1,"has_price_overrides":0},{"model_id":"mistralai/mistral-saba","canonical_slug":"mistralai/mistral-saba-2502","company":"Mistral AI","context_tokens":32768,"input_price":0.2,"output_price":0.6,"image_input":0,"text_output":1,"has_price_overrides":0},{"model_id":"mistralai/mistral-small-24b-instruct-2501","canonical_slug":"mistralai/mistral-small-24b-instruct-2501","company":"Mistral AI","context_tokens":32768,"input_price":0.05,"output_price":0.08,"image_input":0,"text_output":1,"has_price_overrides":0},{"model_id":"mistralai/mistral-small-2603","canonical_slug":"mistralai/mistral-small-2603","company":"Mistral AI","context_tokens":262144,"input_price":0.15,"output_price":0.6,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"mistralai/mistral-small-2603:batch","canonical_slug":"mistralai/mistral-small-2603","company":"Mistral AI","context_tokens":262144,"input_price":0.075,"output_price":0.3,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"mistralai/mistral-small-3.1-24b-instruct","canonical_slug":"mistralai/mistral-small-3.1-24b-instruct-2503","company":"Mistral AI","context_tokens":128000,"input_price":0.351,"output_price":0.555,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"mistralai/mistral-small-3.2-24b-instruct","canonical_slug":"mistralai/mistral-small-3.2-24b-instruct-2506","company":"Mistral AI","context_tokens":256000,"input_price":0.09375,"output_price":0.25,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"mistralai/mixtral-8x22b-instruct","canonical_slug":"mistralai/mixtral-8x22b-instruct","company":"Mistral AI","context_tokens":65536,"input_price":2,"output_price":6,"image_input":0,"text_output":1,"has_price_overrides":0},{"model_id":"mistralai/voxtral-small-24b-2507","canonical_slug":"mistralai/voxtral-small-24b-2507","company":"Mistral AI","context_tokens":32768,"input_price":0.1,"output_price":0.3,"image_input":0,"text_output":1,"has_price_overrides":0},{"model_id":"nvidia/nemotron-3-nano-30b-a3b","canonical_slug":"nvidia/nemotron-3-nano-30b-a3b","company":"NVIDIA","context_tokens":262144,"input_price":0.05,"output_price":0.2,"image_input":0,"text_output":1,"has_price_overrides":0},{"model_id":"nvidia/nemotron-3-super-120b-a12b","canonical_slug":"nvidia/nemotron-3-super-120b-a12b-20230311","company":"NVIDIA","context_tokens":262144,"input_price":0.08,"output_price":0.45,"image_input":0,"text_output":1,"has_price_overrides":0},{"model_id":"nvidia/nemotron-3-ultra-550b-a55b","canonical_slug":"nvidia/nemotron-3-ultra-550b-a55b-20260604","company":"NVIDIA","context_tokens":262144,"input_price":0.6,"output_price":2.4,"image_input":0,"text_output":1,"has_price_overrides":0},{"model_id":"nvidia/nemotron-3.5-content-safety","canonical_slug":"nvidia/nemotron-3.5-content-safety-20260604","company":"NVIDIA","context_tokens":131072,"input_price":0.2,"output_price":0.2,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"nvidia/nemotron-3.5-lightning","canonical_slug":"nvidia/nemotron-3.5-lightning-20260807","company":"NVIDIA","context_tokens":262144,"input_price":0.0595,"output_price":0.17,"image_input":0,"text_output":1,"has_price_overrides":0},{"model_id":"openai/gpt-3.5-turbo","canonical_slug":"openai/gpt-3.5-turbo","company":"OpenAI","context_tokens":16385,"input_price":0.5,"output_price":1.5,"image_input":0,"text_output":1,"has_price_overrides":0},{"model_id":"openai/gpt-3.5-turbo-0613","canonical_slug":"openai/gpt-3.5-turbo-0613","company":"OpenAI","context_tokens":4095,"input_price":1,"output_price":2,"image_input":0,"text_output":1,"has_price_overrides":0},{"model_id":"openai/gpt-3.5-turbo-16k","canonical_slug":"openai/gpt-3.5-turbo-16k","company":"OpenAI","context_tokens":16385,"input_price":3,"output_price":4,"image_input":0,"text_output":1,"has_price_overrides":0},{"model_id":"openai/gpt-3.5-turbo-instruct","canonical_slug":"openai/gpt-3.5-turbo-instruct","company":"OpenAI","context_tokens":4095,"input_price":1.5,"output_price":2,"image_input":0,"text_output":1,"has_price_overrides":0},{"model_id":"openai/gpt-3.5-turbo:batch","canonical_slug":"openai/gpt-3.5-turbo","company":"OpenAI","context_tokens":16385,"input_price":0.25,"output_price":0.75,"image_input":0,"text_output":1,"has_price_overrides":0},{"model_id":"openai/gpt-4","canonical_slug":"openai/gpt-4","company":"OpenAI","context_tokens":8191,"input_price":30,"output_price":60,"image_input":0,"text_output":1,"has_price_overrides":0},{"model_id":"openai/gpt-4-turbo","canonical_slug":"openai/gpt-4-turbo","company":"OpenAI","context_tokens":128000,"input_price":10,"output_price":30,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"openai/gpt-4-turbo:batch","canonical_slug":"openai/gpt-4-turbo","company":"OpenAI","context_tokens":128000,"input_price":5,"output_price":15,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"openai/gpt-4.1","canonical_slug":"openai/gpt-4.1-2025-04-14","company":"OpenAI","context_tokens":1047576,"input_price":2,"output_price":8,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"openai/gpt-4.1-mini","canonical_slug":"openai/gpt-4.1-mini-2025-04-14","company":"OpenAI","context_tokens":1047576,"input_price":0.4,"output_price":1.6,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"openai/gpt-4.1-mini:batch","canonical_slug":"openai/gpt-4.1-mini-2025-04-14","company":"OpenAI","context_tokens":1047576,"input_price":0.2,"output_price":0.8,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"openai/gpt-4.1-nano","canonical_slug":"openai/gpt-4.1-nano-2025-04-14","company":"OpenAI","context_tokens":1047576,"input_price":0.1,"output_price":0.4,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"openai/gpt-4.1-nano:batch","canonical_slug":"openai/gpt-4.1-nano-2025-04-14","company":"OpenAI","context_tokens":1047576,"input_price":0.05,"output_price":0.2,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"openai/gpt-4.1:batch","canonical_slug":"openai/gpt-4.1-2025-04-14","company":"OpenAI","context_tokens":1047576,"input_price":1,"output_price":4,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"openai/gpt-4o","canonical_slug":"openai/gpt-4o","company":"OpenAI","context_tokens":128000,"input_price":2.5,"output_price":10,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"openai/gpt-4o-2024-05-13","canonical_slug":"openai/gpt-4o-2024-05-13","company":"OpenAI","context_tokens":128000,"input_price":5,"output_price":15,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"openai/gpt-4o-2024-08-06","canonical_slug":"openai/gpt-4o-2024-08-06","company":"OpenAI","context_tokens":128000,"input_price":2.5,"output_price":10,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"openai/gpt-4o-2024-11-20","canonical_slug":"openai/gpt-4o-2024-11-20","company":"OpenAI","context_tokens":128000,"input_price":2.5,"output_price":10,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"openai/gpt-4o-mini","canonical_slug":"openai/gpt-4o-mini","company":"OpenAI","context_tokens":128000,"input_price":0.15,"output_price":0.6,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"openai/gpt-4o-mini-2024-07-18","canonical_slug":"openai/gpt-4o-mini-2024-07-18","company":"OpenAI","context_tokens":128000,"input_price":0.15,"output_price":0.6,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"openai/gpt-4o-mini:batch","canonical_slug":"openai/gpt-4o-mini","company":"OpenAI","context_tokens":128000,"input_price":0.075,"output_price":0.3,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"openai/gpt-4o:batch","canonical_slug":"openai/gpt-4o","company":"OpenAI","context_tokens":128000,"input_price":1.25,"output_price":5,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"openai/gpt-5","canonical_slug":"openai/gpt-5-2025-08-07","company":"OpenAI","context_tokens":400000,"input_price":1.25,"output_price":10,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"openai/gpt-5-mini","canonical_slug":"openai/gpt-5-mini-2025-08-07","company":"OpenAI","context_tokens":400000,"input_price":0.25,"output_price":2,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"openai/gpt-5-mini:batch","canonical_slug":"openai/gpt-5-mini-2025-08-07","company":"OpenAI","context_tokens":400000,"input_price":0.125,"output_price":1,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"openai/gpt-5-nano","canonical_slug":"openai/gpt-5-nano-2025-08-07","company":"OpenAI","context_tokens":400000,"input_price":0.05,"output_price":0.4,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"openai/gpt-5-nano:batch","canonical_slug":"openai/gpt-5-nano-2025-08-07","company":"OpenAI","context_tokens":400000,"input_price":0.025,"output_price":0.2,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"openai/gpt-5-pro","canonical_slug":"openai/gpt-5-pro-2025-10-06","company":"OpenAI","context_tokens":400000,"input_price":15,"output_price":120,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"openai/gpt-5-pro:batch","canonical_slug":"openai/gpt-5-pro-2025-10-06","company":"OpenAI","context_tokens":400000,"input_price":7.5,"output_price":60,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"openai/gpt-5.1","canonical_slug":"openai/gpt-5.1-20251113","company":"OpenAI","context_tokens":400000,"input_price":1.25,"output_price":10,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"openai/gpt-5.1-codex","canonical_slug":"openai/gpt-5.1-codex-20251113","company":"OpenAI","context_tokens":400000,"input_price":1.25,"output_price":10,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"openai/gpt-5.1-codex-max","canonical_slug":"openai/gpt-5.1-codex-max-20251204","company":"OpenAI","context_tokens":400000,"input_price":1.25,"output_price":10,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"openai/gpt-5.1-codex-mini","canonical_slug":"openai/gpt-5.1-codex-mini-20251113","company":"OpenAI","context_tokens":400000,"input_price":0.25,"output_price":2,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"openai/gpt-5.1:batch","canonical_slug":"openai/gpt-5.1-20251113","company":"OpenAI","context_tokens":400000,"input_price":0.625,"output_price":5,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"openai/gpt-5.2","canonical_slug":"openai/gpt-5.2-20251211","company":"OpenAI","context_tokens":400000,"input_price":1.75,"output_price":14,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"openai/gpt-5.2-chat","canonical_slug":"openai/gpt-5.2-chat-20251211","company":"OpenAI","context_tokens":128000,"input_price":1.75,"output_price":14,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"openai/gpt-5.2-codex","canonical_slug":"openai/gpt-5.2-codex-20260114","company":"OpenAI","context_tokens":400000,"input_price":1.75,"output_price":14,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"openai/gpt-5.2-pro","canonical_slug":"openai/gpt-5.2-pro-20251211","company":"OpenAI","context_tokens":400000,"input_price":21,"output_price":168,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"openai/gpt-5.2-pro:batch","canonical_slug":"openai/gpt-5.2-pro-20251211","company":"OpenAI","context_tokens":400000,"input_price":10.5,"output_price":84,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"openai/gpt-5.2:batch","canonical_slug":"openai/gpt-5.2-20251211","company":"OpenAI","context_tokens":400000,"input_price":0.875,"output_price":7,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"openai/gpt-5.3-codex","canonical_slug":"openai/gpt-5.3-codex-20260224","company":"OpenAI","context_tokens":400000,"input_price":1.75,"output_price":14,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"openai/gpt-5.4","canonical_slug":"openai/gpt-5.4-20260305","company":"OpenAI","context_tokens":1050000,"input_price":2.5,"output_price":15,"image_input":1,"text_output":1,"has_price_overrides":1},{"model_id":"openai/gpt-5.4-mini","canonical_slug":"openai/gpt-5.4-mini-20260317","company":"OpenAI","context_tokens":400000,"input_price":0.75,"output_price":4.5,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"openai/gpt-5.4-mini:batch","canonical_slug":"openai/gpt-5.4-mini-20260317","company":"OpenAI","context_tokens":400000,"input_price":0.375,"output_price":2.25,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"openai/gpt-5.4-nano","canonical_slug":"openai/gpt-5.4-nano-20260317","company":"OpenAI","context_tokens":400000,"input_price":0.2,"output_price":1.25,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"openai/gpt-5.4-nano:batch","canonical_slug":"openai/gpt-5.4-nano-20260317","company":"OpenAI","context_tokens":400000,"input_price":0.1,"output_price":0.625,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"openai/gpt-5.4-pro","canonical_slug":"openai/gpt-5.4-pro-20260305","company":"OpenAI","context_tokens":1050000,"input_price":30,"output_price":180,"image_input":1,"text_output":1,"has_price_overrides":1},{"model_id":"openai/gpt-5.4-pro:batch","canonical_slug":"openai/gpt-5.4-pro-20260305","company":"OpenAI","context_tokens":1050000,"input_price":15,"output_price":90,"image_input":1,"text_output":1,"has_price_overrides":1},{"model_id":"openai/gpt-5.4:batch","canonical_slug":"openai/gpt-5.4-20260305","company":"OpenAI","context_tokens":1050000,"input_price":1.25,"output_price":7.5,"image_input":1,"text_output":1,"has_price_overrides":1},{"model_id":"openai/gpt-5.5","canonical_slug":"openai/gpt-5.5-20260423","company":"OpenAI","context_tokens":1050000,"input_price":5,"output_price":30,"image_input":1,"text_output":1,"has_price_overrides":1},{"model_id":"openai/gpt-5.5-pro","canonical_slug":"openai/gpt-5.5-pro-20260423","company":"OpenAI","context_tokens":1050000,"input_price":30,"output_price":180,"image_input":1,"text_output":1,"has_price_overrides":1},{"model_id":"openai/gpt-5.5-pro:batch","canonical_slug":"openai/gpt-5.5-pro-20260423","company":"OpenAI","context_tokens":1050000,"input_price":15,"output_price":90,"image_input":1,"text_output":1,"has_price_overrides":1},{"model_id":"openai/gpt-5.5:batch","canonical_slug":"openai/gpt-5.5-20260423","company":"OpenAI","context_tokens":1050000,"input_price":2.5,"output_price":15,"image_input":1,"text_output":1,"has_price_overrides":1},{"model_id":"openai/gpt-5.6-luna","canonical_slug":"openai/gpt-5.6-luna-20260709","company":"OpenAI","context_tokens":1050000,"input_price":0.2,"output_price":1.2,"image_input":1,"text_output":1,"has_price_overrides":1},{"model_id":"openai/gpt-5.6-luna-pro","canonical_slug":"openai/gpt-5.6-luna-pro-20260709","company":"OpenAI","context_tokens":1050000,"input_price":0.2,"output_price":1.2,"image_input":1,"text_output":1,"has_price_overrides":1},{"model_id":"openai/gpt-5.6-luna-pro:batch","canonical_slug":"openai/gpt-5.6-luna-pro-20260709","company":"OpenAI","context_tokens":1050000,"input_price":0.1,"output_price":0.6,"image_input":1,"text_output":1,"has_price_overrides":1},{"model_id":"openai/gpt-5.6-luna:batch","canonical_slug":"openai/gpt-5.6-luna-20260709","company":"OpenAI","context_tokens":1050000,"input_price":0.1,"output_price":0.6,"image_input":1,"text_output":1,"has_price_overrides":1},{"model_id":"openai/gpt-5.6-sol","canonical_slug":"openai/gpt-5.6-sol-20260709","company":"OpenAI","context_tokens":1050000,"input_price":2,"output_price":10,"image_input":1,"text_output":1,"has_price_overrides":1},{"model_id":"openai/gpt-5.6-sol-pro","canonical_slug":"openai/gpt-5.6-sol-pro-20260709","company":"OpenAI","context_tokens":1050000,"input_price":4,"output_price":20,"image_input":1,"text_output":1,"has_price_overrides":1},{"model_id":"openai/gpt-5.6-sol-pro:batch","canonical_slug":"openai/gpt-5.6-sol-pro-20260709","company":"OpenAI","context_tokens":1050000,"input_price":1,"output_price":5,"image_input":1,"text_output":1,"has_price_overrides":1},{"model_id":"openai/gpt-5.6-sol:batch","canonical_slug":"openai/gpt-5.6-sol-20260709","company":"OpenAI","context_tokens":1050000,"input_price":1,"output_price":5,"image_input":1,"text_output":1,"has_price_overrides":1},{"model_id":"openai/gpt-5.6-terra","canonical_slug":"openai/gpt-5.6-terra-20260709","company":"OpenAI","context_tokens":1050000,"input_price":2,"output_price":12,"image_input":1,"text_output":1,"has_price_overrides":1},{"model_id":"openai/gpt-5.6-terra-pro","canonical_slug":"openai/gpt-5.6-terra-pro-20260709","company":"OpenAI","context_tokens":1050000,"input_price":2,"output_price":12,"image_input":1,"text_output":1,"has_price_overrides":1},{"model_id":"openai/gpt-5.6-terra-pro:batch","canonical_slug":"openai/gpt-5.6-terra-pro-20260709","company":"OpenAI","context_tokens":1050000,"input_price":1,"output_price":6,"image_input":1,"text_output":1,"has_price_overrides":1},{"model_id":"openai/gpt-5.6-terra:batch","canonical_slug":"openai/gpt-5.6-terra-20260709","company":"OpenAI","context_tokens":1050000,"input_price":1,"output_price":6,"image_input":1,"text_output":1,"has_price_overrides":1},{"model_id":"openai/gpt-5:batch","canonical_slug":"openai/gpt-5-2025-08-07","company":"OpenAI","context_tokens":400000,"input_price":0.625,"output_price":5,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"openai/gpt-6-astra","canonical_slug":"openai/gpt-6-astra-20260903","company":"OpenAI","context_tokens":1050000,"input_price":10,"output_price":50,"image_input":1,"text_output":1,"has_price_overrides":1},{"model_id":"openai/gpt-6-astra-pro","canonical_slug":"openai/gpt-6-astra-pro-20260903","company":"OpenAI","context_tokens":1050000,"input_price":10,"output_price":50,"image_input":1,"text_output":1,"has_price_overrides":1},{"model_id":"openai/gpt-6-astra-pro:batch","canonical_slug":"openai/gpt-6-astra-pro-20260903","company":"OpenAI","context_tokens":1050000,"input_price":5,"output_price":25,"image_input":1,"text_output":1,"has_price_overrides":1},{"model_id":"openai/gpt-6-astra:batch","canonical_slug":"openai/gpt-6-astra-20260903","company":"OpenAI","context_tokens":1050000,"input_price":5,"output_price":25,"image_input":1,"text_output":1,"has_price_overrides":1},{"model_id":"openai/gpt-6-luna","canonical_slug":"openai/gpt-6-luna-20260922","company":"OpenAI","context_tokens":1050000,"input_price":0.1,"output_price":0.5,"image_input":1,"text_output":1,"has_price_overrides":1},{"model_id":"openai/gpt-6-luna-pro","canonical_slug":"openai/gpt-6-luna-pro-20260922","company":"OpenAI","context_tokens":1050000,"input_price":0.1,"output_price":0.5,"image_input":1,"text_output":1,"has_price_overrides":1},{"model_id":"openai/gpt-6-luna-pro:batch","canonical_slug":"openai/gpt-6-luna-pro-20260922","company":"OpenAI","context_tokens":1050000,"input_price":0.05,"output_price":0.25,"image_input":1,"text_output":1,"has_price_overrides":1},{"model_id":"openai/gpt-6-luna:batch","canonical_slug":"openai/gpt-6-luna-20260922","company":"OpenAI","context_tokens":1050000,"input_price":0.05,"output_price":0.25,"image_input":1,"text_output":1,"has_price_overrides":1},{"model_id":"openai/gpt-6-sol","canonical_slug":"openai/gpt-6-sol-20260922","company":"OpenAI","context_tokens":1050000,"input_price":2,"output_price":10,"image_input":1,"text_output":1,"has_price_overrides":1},{"model_id":"openai/gpt-6-sol-pro","canonical_slug":"openai/gpt-6-sol-pro-20260922","company":"OpenAI","context_tokens":1050000,"input_price":2,"output_price":10,"image_input":1,"text_output":1,"has_price_overrides":1},{"model_id":"openai/gpt-6-sol-pro:batch","canonical_slug":"openai/gpt-6-sol-pro-20260922","company":"OpenAI","context_tokens":1050000,"input_price":1,"output_price":5,"image_input":1,"text_output":1,"has_price_overrides":1},{"model_id":"openai/gpt-6-sol:batch","canonical_slug":"openai/gpt-6-sol-20260922","company":"OpenAI","context_tokens":1050000,"input_price":1,"output_price":5,"image_input":1,"text_output":1,"has_price_overrides":1},{"model_id":"openai/gpt-6.1-sol","canonical_slug":"openai/gpt-6.1-sol-20260929","company":"OpenAI","context_tokens":1050000,"input_price":2,"output_price":10,"image_input":1,"text_output":1,"has_price_overrides":1},{"model_id":"openai/gpt-6.1-sol-pro","canonical_slug":"openai/gpt-6.1-sol-pro-20260929","company":"OpenAI","context_tokens":1050000,"input_price":2,"output_price":10,"image_input":1,"text_output":1,"has_price_overrides":1},{"model_id":"openai/gpt-chat-latest","canonical_slug":"openai/gpt-chat-latest-20260505","company":"OpenAI","context_tokens":400000,"input_price":5,"output_price":30,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"openai/gpt-oss-120b","canonical_slug":"openai/gpt-oss-120b","company":"OpenAI","context_tokens":131072,"input_price":0.037,"output_price":0.17,"image_input":0,"text_output":1,"has_price_overrides":0},{"model_id":"openai/gpt-oss-120b:batch","canonical_slug":"openai/gpt-oss-120b","company":"OpenAI","context_tokens":131072,"input_price":0.0296,"output_price":0.136,"image_input":0,"text_output":1,"has_price_overrides":0},{"model_id":"openai/gpt-oss-20b","canonical_slug":"openai/gpt-oss-20b","company":"OpenAI","context_tokens":131072,"input_price":0.018,"output_price":0.09,"image_input":0,"text_output":1,"has_price_overrides":0},{"model_id":"openai/gpt-oss-20b:batch","canonical_slug":"openai/gpt-oss-20b","company":"OpenAI","context_tokens":131072,"input_price":0.024,"output_price":0.112,"image_input":0,"text_output":1,"has_price_overrides":0},{"model_id":"openai/gpt-oss-safeguard-20b","canonical_slug":"openai/gpt-oss-safeguard-20b","company":"OpenAI","context_tokens":131072,"input_price":0.075,"output_price":0.3,"image_input":0,"text_output":1,"has_price_overrides":0},{"model_id":"openai/o1","canonical_slug":"openai/o1-2024-12-17","company":"OpenAI","context_tokens":200000,"input_price":15,"output_price":60,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"openai/o1-pro","canonical_slug":"openai/o1-pro","company":"OpenAI","context_tokens":200000,"input_price":150,"output_price":600,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"openai/o3","canonical_slug":"openai/o3-2025-04-16","company":"OpenAI","context_tokens":200000,"input_price":2,"output_price":8,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"openai/o3-mini","canonical_slug":"openai/o3-mini-2025-01-31","company":"OpenAI","context_tokens":200000,"input_price":1.1,"output_price":4.4,"image_input":0,"text_output":1,"has_price_overrides":0},{"model_id":"openai/o3-mini-high","canonical_slug":"openai/o3-mini-high-2025-01-31","company":"OpenAI","context_tokens":200000,"input_price":1.1,"output_price":4.4,"image_input":0,"text_output":1,"has_price_overrides":0},{"model_id":"openai/o3-mini:batch","canonical_slug":"openai/o3-mini-2025-01-31","company":"OpenAI","context_tokens":200000,"input_price":0.55,"output_price":2.2,"image_input":0,"text_output":1,"has_price_overrides":0},{"model_id":"openai/o3-pro","canonical_slug":"openai/o3-pro-2025-06-10","company":"OpenAI","context_tokens":200000,"input_price":20,"output_price":80,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"openai/o3:batch","canonical_slug":"openai/o3-2025-04-16","company":"OpenAI","context_tokens":200000,"input_price":1,"output_price":4,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"openai/o4-mini","canonical_slug":"openai/o4-mini-2025-04-16","company":"OpenAI","context_tokens":200000,"input_price":1.1,"output_price":4.4,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"openai/o4-mini-high","canonical_slug":"openai/o4-mini-high-2025-04-16","company":"OpenAI","context_tokens":200000,"input_price":1.1,"output_price":4.4,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"openai/o4-mini:batch","canonical_slug":"openai/o4-mini-2025-04-16","company":"OpenAI","context_tokens":200000,"input_price":0.55,"output_price":2.2,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"perplexity/sonar","canonical_slug":"perplexity/sonar","company":"Perplexity","context_tokens":127072,"input_price":1,"output_price":1,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"perplexity/sonar-deep-research","canonical_slug":"perplexity/sonar-deep-research","company":"Perplexity","context_tokens":128000,"input_price":2,"output_price":8,"image_input":0,"text_output":1,"has_price_overrides":0},{"model_id":"perplexity/sonar-pro","canonical_slug":"perplexity/sonar-pro","company":"Perplexity","context_tokens":200000,"input_price":3,"output_price":15,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"perplexity/sonar-pro-search","canonical_slug":"perplexity/sonar-pro-search","company":"Perplexity","context_tokens":200000,"input_price":3,"output_price":15,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"perplexity/sonar-reasoning-pro","canonical_slug":"perplexity/sonar-reasoning-pro","company":"Perplexity","context_tokens":128000,"input_price":2,"output_price":8,"image_input":1,"text_output":1,"has_price_overrides":0},{"model_id":"x-ai/grok-4.20","canonical_slug":"x-ai/grok-4.20-20260309","company":"xAI","context_tokens":2000000,"input_price":1.25,"output_price":2.5,"image_input":1,"text_output":1,"has_price_overrides":1},{"model_id":"x-ai/grok-4.20-multi-agent","canonical_slug":"x-ai/grok-4.20-multi-agent-20260309","company":"xAI","context_tokens":2000000,"input_price":1.25,"output_price":2.5,"image_input":1,"text_output":1,"has_price_overrides":1},{"model_id":"x-ai/grok-4.3","canonical_slug":"x-ai/grok-4.3-20260430","company":"xAI","context_tokens":1000000,"input_price":1.25,"output_price":2.5,"image_input":1,"text_output":1,"has_price_overrides":1},{"model_id":"x-ai/grok-4.3:batch","canonical_slug":"x-ai/grok-4.3-20260430","company":"xAI","context_tokens":1000000,"input_price":1,"output_price":2,"image_input":1,"text_output":1,"has_price_overrides":1},{"model_id":"x-ai/grok-4.5","canonical_slug":"x-ai/grok-4.5-20260708","company":"xAI","context_tokens":500000,"input_price":2,"output_price":6,"image_input":1,"text_output":1,"has_price_overrides":1},{"model_id":"x-ai/grok-4.6","canonical_slug":"x-ai/grok-4.6-20260810","company":"xAI","context_tokens":500000,"input_price":2,"output_price":6,"image_input":1,"text_output":1,"has_price_overrides":1},{"model_id":"x-ai/grok-4.7","canonical_slug":"x-ai/grok-4.7-20260916","company":"xAI","context_tokens":500000,"input_price":2,"output_price":6,"image_input":1,"text_output":1,"has_price_overrides":1},{"model_id":"x-ai/grok-build-0.1","canonical_slug":"x-ai/grok-build-0.1-20260520","company":"xAI","context_tokens":256000,"input_price":1,"output_price":2,"image_input":1,"text_output":1,"has_price_overrides":1}]</script>
+<div class="controls">
+<label>Developer<select id="company-filter"><option value="">All developers</option></select></label>
+<label>Find a model<input id="model-search" type="search" placeholder="Search model ID"></label>
+<label>Input tokens<input id="input-tokens" type="number" min="0" max="10000000" value="1000"></label>
+<label>Billed output tokens<input id="output-tokens" type="number" min="0" max="1000000" value="500"></label>
+</div>
+<p id="model-count" class="calc-result" aria-live="polite"></p>
+<div class="table-wrap">
+<table id="model-table" class="caption-top">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">Model</th>
+<th data-quarto-table-cell-role="th">Developer</th>
+<th data-quarto-table-cell-role="th">Context</th>
+<th data-quarto-table-cell-role="th">Input $/M</th>
+<th data-quarto-table-cell-role="th">Output $/M</th>
+<th data-quarto-table-cell-role="th">Base cost</th>
+</tr>
+</thead>
+<tbody id="model-rows">
+</tbody>
+</table>
+</div>
+</section>
+<section id="how-context-size-and-price-are-linked" class="level2">
+<h2 class="anchored" data-anchor-id="how-context-size-and-price-are-linked">How context size and price are linked</h2>
+<p>To study prices, we fit a regression. It links context size to output price. It also accounts for who makes the model and whether it reads images. The equation is:</p>
+<p><span class="math display">\[\log(p_j)=\alpha+\beta\log(c_j)+\gamma_{developer(j)}+\delta\,image_j+\epsilon_j.\]</span></p>
+<p>The fit uses 283 model versions. The context coefficient is <strong>0.171</strong>, and R² is <strong>0.382</strong>. R² measures the share of variation in log prices that the fit explains in this sample. At twice the context size, the fitted output price differs by about <strong>12.6%</strong>. This holds the developer and image support fixed.</p>
+<p>This fit does <strong>not</strong> show cause and effect. It does not tell us how buyers would react to a price change. More context does not prove better quality. We lack matched scores over time, demand, and the cost of running each model. We also lack price changes driven by outside events. Model families and firms may share errors. We do not treat each listing as an independent sample for tests of significance.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>catalog <span class="ot">&lt;-</span> jsonlite<span class="sc">::</span><span class="fu">fromJSON</span>(<span class="st">'data/processed/analysis_sample.json'</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="fu">log</span>(output_price) <span class="sc">~</span> <span class="fu">log</span>(context_tokens) <span class="sc">+</span> <span class="fu">factor</span>(company) <span class="sc">+</span> image_input,</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">data =</span> catalog)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(fit)[<span class="st">"log(context_tokens)"</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>log(context_tokens) 
+          0.1705679 </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_set</span>(</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">12</span>) <span class="sc">+</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>      <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>      <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">color =</span> <span class="st">"#102824"</span>),</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>      <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"#53635f"</span>),</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>      <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"#53635f"</span>),</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>      <span class="at">plot.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"#fcfbf7"</span>, <span class="at">color =</span> <span class="cn">NA</span>)</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>catalog <span class="ot">&lt;-</span> jsonlite<span class="sc">::</span><span class="fu">fromJSON</span>(<span class="st">"data/processed/analysis_sample.json"</span>)</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(catalog, <span class="fu">aes</span>(context_tokens, output_price, <span class="at">color =</span> company)) <span class="sc">+</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> .<span class="dv">65</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_log10</span>() <span class="sc">+</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_log10</span>() <span class="sc">+</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">color =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Context window (tokens) · log scale"</span>,</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Output USD / million tokens · log scale"</span>,</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Context size is one of many model traits"</span>,</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Each point is a model version; color shows the developer"</span></span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="market_files/figure-html/context-price-1.png" class="img-fluid figure-img" alt="Scatterplot of context length against advertised output price, both on logarithmic scales."></p>
+</figure>
+</div>
+</div>
+</div>
+<section id="what-changes-when-we-change-the-fit" class="level3">
+<h3 class="anchored" data-anchor-id="what-changes-when-we-change-the-fit">What changes when we change the fit?</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Price model</th>
+<th style="text-align: right;">Context coefficient</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Context only</td>
+<td style="text-align: right;">0.422</td>
+</tr>
+<tr class="even">
+<td>Developer controls + image-input support</td>
+<td style="text-align: right;">0.171</td>
+</tr>
+<tr class="odd">
+<td>Same controls, excluding OpenAI</td>
+<td style="text-align: right;">0.324</td>
+</tr>
+</tbody>
+</table>
+<p>The estimate changes when we change the fit or the sample. These checks do not remove bias from traits we have not measured. The paid sample has 65 listings with price overrides. The fit uses base prices for all of them.</p>
+<p><a href="data/processed/analysis_sample.json">Download the price data (JSON)</a> · <a href="R/analyze.R">Read the R code</a> · <a href="data/processed/manifest.json">Source details</a></p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script src="assets/explorer.js"></script>
+<script src="assets/research.js"></script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/sbachani28\.github\.io\/ai-context-management\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>CONTEXT MANAGEMENT · Student research</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>Tests of source recall · Finding facts does not prove an answer is right</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
