@@ -11,7 +11,7 @@ source('R/context_setup.R')
 ```
 
 ::: {.hero}
-<div class="eyebrow">Student research / Edition 02</div>
+<div class="eyebrow">Independent Research Project</div>
 
 # Context Management Across AI Tools {.unlisted}
 

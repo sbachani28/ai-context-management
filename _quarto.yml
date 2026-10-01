@@ -41,7 +41,7 @@ website:
       - text: Survey
         href: pulse.qmd
   page-footer:
-    left: "CONTEXT MANAGEMENT · Student research"
+    left: "CONTEXT MANAGEMENT · Independent Research Project"
     right: "Tests of source recall · Finding facts does not prove an answer is right"
   search: true
 format:

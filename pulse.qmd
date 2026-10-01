@@ -74,7 +74,7 @@ format:
       </form>
     </div>
   </div>
-  <footer class="survey-page-note">Student research · We have not collected survey answers yet.</footer>
+  <footer class="survey-page-note">Independent Research Project · We have not collected survey answers yet.</footer>
 </div>
 <script src="assets/pulse.js"></script>
 ```
